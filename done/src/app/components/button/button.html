@@ -1,0 +1,37 @@
+<button
+  (mouseenter)="hovered.set(true)"
+  (mouseleave)="hovered.set(false)"
+  [routerLink]="route()"
+  [class]="
+    'cursor-pointer flex justify-center items-center font-semibold transition-all duration-500 select-none max-h-10' +
+    ' ' +
+    (btnType() === 'primary'
+      ? 'bg-accent! hover:bg-accent/80! text-black'
+      : btnType() === 'outlined'
+        ? 'border border-accent! bg-transparent hover:bg-accent! hover:text-black'
+        : 'hover:bg-slate-500 bg-slate-700') +
+    ' ' +
+    (glow() && 'hover:shadow-[0px_7px_20px_var(--color-accent)]') +
+    ' ' +
+    (rounded() ? 'rounded-full' : 'rounded-xl') +
+    ' ' +
+    (iconOnly() || (hideText() && !hovered()) ? 'p-3' : 'px-4 py-2 gap-2') +
+    ' ' +
+    class()
+  "
+>
+  @if (icon()) {
+    <ng-icon
+      [name]="icon()"
+      [class]="'text-lg' + ' ' + iconClass() + ' ' + (iconPosition() === 'right' && 'order-2')"
+    />
+  }
+  @if (label()) {
+    <span
+      class="overflow-hidden transition-all duration-500 whitespace-nowrap"
+      [class]="hideText() && !hovered() ? 'opacity-0 max-w-0' : 'opacity-100 max-w-xs'"
+    >
+      {{ label() }}
+    </span>
+  }
+</button>

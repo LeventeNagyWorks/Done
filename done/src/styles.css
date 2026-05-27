@@ -1,3 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+@theme {
+  --color-accent: #d82148;
+  --color-sakura: #faa9e0;
+  --color-lime: #a7d129;
+  --color-yellow: #fddb3a;
+  --color-red: #d82148;
+  --color-skin: #ff9a86;
+}
+
+router-outlet + * {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

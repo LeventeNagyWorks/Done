@@ -1,0 +1,21 @@
+<div class="w-full flex-1 flex flex-col rounded-xl p-20">
+  <div class="bg-slate-700/70 backdrop-blur-lg w-full flex-1 flex flex-col rounded-2xl p-4">
+    <div class="flex flex-col justify-center gap-14">
+      <div class="flex gap-5">
+        <div class="flex flex-col gap-1">
+          <label>Todo</label>
+          <input
+            type="text"
+            class="p-2 px-3 outline-none border focus:border-accent rounded-lg caret-accent focus:text-accent font-semibold duration-700 max-w-100"
+          />
+        </div>
+        <app-button></app-button>
+      </div>
+      <div class="flex flex-col gap-4 px-20">
+        @for (todo of todos(); track todo.id) {
+          <app-todo-item [todo]="todo" (toggle)="toggleTodo($event)" />
+        }
+      </div>
+    </div>
+  </div>
+</div>
