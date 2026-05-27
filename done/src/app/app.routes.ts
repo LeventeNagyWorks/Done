@@ -12,7 +12,9 @@ export const routes: Routes = [
     component: Playground,
     children: [
       { path: 'button', component: Playground },
+      { path: 'checkbox', component: Playground },
       { path: 'dropdown', component: Playground },
+      { path: '**', redirectTo: 'button' }
     ],
   },
   { path: 'profile', component: Profile },
