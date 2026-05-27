@@ -7,7 +7,14 @@ import { Playground } from './pages/playground/playground';
 export const routes: Routes = [
   { path: 'home', component: Home },
   { path: 'tasks', component: Tasks },
-  { path: 'playground', component: Playground },
+  {
+    path: 'playground',
+    component: Playground,
+    children: [
+      { path: 'button', component: Playground },
+      { path: 'dropdown', component: Playground },
+    ],
+  },
   { path: 'profile', component: Profile },
   { path: '**', redirectTo: 'home' },
 ];

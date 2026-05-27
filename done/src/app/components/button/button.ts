@@ -22,7 +22,6 @@ export class Button {
   disabled = input<boolean>(false);
   glow = input<boolean>(false);
   iconPosition = input<iconPosType>('left');
-
   hideText = input<boolean>(false);
   hovered = signal<boolean>(false);
 }
