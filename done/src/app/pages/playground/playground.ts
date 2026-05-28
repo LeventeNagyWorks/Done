@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { Checkbox } from '../../components/checkbox/checkbox';
 import { Button } from '../../components/button/button';
 import { Dropdown, DropdownOption } from '../../components/dropdown/dropdown';
+import { Label } from '../../components/label/label';
 
 @Component({
   selector: 'app-playground',
-  imports: [Checkbox, Button, Dropdown],
+  imports: [Checkbox, Button, Dropdown, Label],
   templateUrl: './playground.html',
 })
 export class Playground {
@@ -16,6 +17,7 @@ export class Playground {
     { label: 'Button' },
     { label: 'Checkbox' },
     { label: 'Dropdown' },
+    { label: 'Label' },
   ];
   testOptions: DropdownOption[] = [
     { label: 'Avalon' },

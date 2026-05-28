@@ -62,9 +62,12 @@
       @case ('Checkbox') {
         <app-checkbox />
         <app-checkbox [square]="true" />
+        <app-checkbox label="Accept the Terms" />
+        <app-checkbox [square]="true" label="Accept the Terms" />
       }
       @case ('Dropdown') {
         <app-dropdown
+          label="Searchable Label"
           [options]="testOptions"
           [(selected)]="selectedTest"
           [searchable]="true"
@@ -73,9 +76,19 @@
         <app-dropdown
           [options]="testOptions"
           [(selected)]="selectedTest"
+          [searchable]="true"
+          placeholder="Searchable"
+        />
+        <app-dropdown
+          label="Test Label"
+          [options]="testOptions"
+          [(selected)]="selectedTest"
           placeholder="Placeholder"
         />
         <app-dropdown [options]="testOptions" [(selected)]="selectedTest" />
+      }
+      @case ('Label') {
+        <app-label label="Label" />
       }
     }
   </div>

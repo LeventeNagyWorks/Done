@@ -1,29 +1,35 @@
 <div class="relative select-none">
   @if (searchable()) {
-    <div class="relative flex max-w-3xs">
-      <input
-        type="text"
-        [placeholder]="placeholder()"
-        (click)="handleOpen()"
-        [value]="selected()?.label"
-        (input)="searchTerm.set($any($event.target).value)"
-        [class]="dropdownClass + 'caret-accent focus:text-accent w-full outline-none'"
-      />
-      <ng-icon
-        name="remixArrowDownSLine"
-        [class]="
-          'absolute top-1/2 right-4 -translate-y-1/2 text-xl duration-500 ' +
-          (opened() && 'rotate-180')
-        "
-      />
+    <div class="flex flex-col gap-1">
+      <app-label [label]="label()!" />
+      <div class="relative flex max-w-3xs">
+        <input
+          type="text"
+          [placeholder]="placeholder()"
+          (click)="handleOpen()"
+          [value]="selected()?.label"
+          (input)="searchTerm.set($any($event.target).value)"
+          [class]="dropdownClass + 'caret-accent focus:text-accent w-full outline-none'"
+        />
+        <ng-icon
+          name="remixArrowDownSLine"
+          [class]="
+            'absolute top-1/2 right-4 -translate-y-1/2 text-xl duration-500 ' +
+            (opened() && 'rotate-180')
+          "
+        />
+      </div>
     </div>
   } @else {
-    <div (click)="handleOpen()" [class]="dropdownClass">
-      <span [class.text-zinc-400]="!selected()">{{ selected()?.label ?? placeholder() }}</span>
-      <ng-icon
-        name="remixArrowDownSLine"
-        [class]="'text-xl duration-500 ' + (opened() && 'rotate-180')"
-      />
+    <div class="flex flex-col gap-1">
+      <app-label [label]="label()!" />
+      <div (click)="handleOpen()" [class]="dropdownClass">
+        <span [class.text-zinc-400]="!selected()">{{ selected()?.label ?? placeholder() }}</span>
+        <ng-icon
+          name="remixArrowDownSLine"
+          [class]="'text-xl duration-500 ' + (opened() && 'rotate-180')"
+        />
+      </div>
     </div>
   }
   @if (opened()) {

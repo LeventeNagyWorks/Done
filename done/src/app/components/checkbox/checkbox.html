@@ -1,10 +1,14 @@
-<div
-  (click)="handleClick()"
-  [class.rounded-full]="!square()"
-  [class.rounded-md]="square()"
-  class="border border-zinc-400 w-5 h-5 rounded-full flex items-center justify-center cursor-pointer relative duration-500 hover:shadow-[0_0_8px_var(--color-accent)]"
->
-  @if (checked()) {
-    <ng-icon name="remixCheckLine" size="24" class="absolute" />
-  }
+<div class="flex items-center gap-2">
+  <div
+    (click)="handleClick()"
+    [class.rounded-full]="!square()"
+    [class.rounded-md]="square()"
+    class="relative flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border border-zinc-400 duration-500 hover:shadow-[0_0_8px_var(--color-accent)]"
+  >
+    @if (checked()) {
+      <ng-icon name="remixCheckLine" size="24" class="absolute" />
+    }
+  </div>
+
+  <app-label [label]="label()!" />
 </div>

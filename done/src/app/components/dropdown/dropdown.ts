@@ -14,6 +14,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { remixArrowDownSLine } from '@ng-icons/remixicon';
 import { fromEvent } from 'rxjs';
+import { Label } from '../label/label';
 
 export interface DropdownOption {
   label: string;
@@ -22,7 +23,7 @@ export interface DropdownOption {
 
 @Component({
   selector: 'app-dropdown',
-  imports: [NgIcon],
+  imports: [NgIcon, Label],
   templateUrl: './dropdown.html',
   providers: [provideIcons({ remixArrowDownSLine })],
 })
@@ -34,6 +35,7 @@ export class Dropdown {
   placeholder = input<string>();
   searchable = input<boolean>(false);
   searchTerm = signal<string>('');
+  label = input<string>();
 
   filteredOptions = computed(() => {
     const term = this.searchTerm().toLowerCase();
