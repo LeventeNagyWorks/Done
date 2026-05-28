@@ -4,7 +4,7 @@ import { remixArrowDownSLine } from '@ng-icons/remixicon';
 
 export interface DropdownOption {
   label: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 @Component({
@@ -20,6 +20,10 @@ export class Dropdown {
 
   handleOpen = () => {
     this.opened.set(!this.opened());
-    console.log('Opened!');
+  };
+
+  handleSelect = (option: DropdownOption) => {
+    this.selected.set(option);
+    this.opened.set(false);
   };
 }

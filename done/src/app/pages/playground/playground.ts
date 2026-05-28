@@ -1,8 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Checkbox } from '../../components/checkbox/checkbox';
 import { Button } from '../../components/button/button';
 import { Dropdown, DropdownOption } from '../../components/dropdown/dropdown';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-playground',
@@ -10,11 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './playground.html',
 })
 export class Playground {
-  private router = inject(Router);
+  selected = signal<DropdownOption | null>(null);
 
-  options: DropdownOption[] = [
-    { label: 'Button', onClick: () => this.router.navigate(['/playground/button']) },
-    { label: 'Checkbox', onClick: () => this.router.navigate(['/playground/checkbox']) },
-    { label: 'Dropdown', onClick: () => this.router.navigate(['/playground/dropdown']) },
-  ];
+  options: DropdownOption[] = [{ label: 'Button' }, { label: 'Checkbox' }, { label: 'Dropdown' }];
 }

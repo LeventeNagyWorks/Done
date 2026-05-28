@@ -1,53 +1,68 @@
-<div class="w-full flex-1 flex flex-col rounded-xl p-20">
-  <div class="bg-black/80 backdrop-blur-xl w-full flex-1 flex flex-col rounded-2xl p-4 gap-4">
-    <app-dropdown [options]="options" />
-    <router-outlet />
-    <!-- <app-checkbox />
-    <app-checkbox [square]="true" />
-    <app-button label="Settings" [hideText]="true" [icon]="'remixSettings4Fill'"></app-button>
-    <app-button label="Mail" btnType="primary" icon="remixMailAddLine"></app-button>
-    <app-button label="Mail" btnType="primary" icon="remixMailAddLine" [glow]="true"
-      ></app-button
-    >
-    <app-button label="Mail" btnType="outlined" icon="remixMailAddLine" [glow]="true"
-      ></app-button
-    >
-    <app-button label="Mail" btnType="outlined" icon="remixMailAddLine"></app-button>
-    <app-button label="Mail" icon="remixMailAddLine"></app-button>
-    <app-button
-      icon="remixMailAddLine"
-      [btnType]="'primary'"
-      [rounded]="true"
-      [iconOnly]="true"
-    ></app-button>
-    <app-button
-      icon="remixMailAddLine"
-      [btnType]="'outlined'"
-      [rounded]="true"
-      [iconOnly]="true"
-    ></app-button>
-    <app-button icon="remixMailAddLine" [rounded]="true" [iconOnly]="true"></app-button>
-    <app-button
-      icon="remixMailAddLine"
-      [btnType]="'primary'"
-      [iconOnly]="true"
-      [glow]="true"
-    ></app-button>
-    <app-button icon="remixMailAddLine" [btnType]="'outlined'" [iconOnly]="true"></app-button>
-    <app-button icon="remixMailAddLine" [iconOnly]="true"></app-button>
-    <app-button
-      label="Send"
-      icon="remixCornerDownRightLine"
-      [iconClass]="'w-6 h-6'"
-      [iconPosition]="'right'"
-    ></app-button>
-    <app-button
-      label="Send"
-      icon="remixCornerDownRightLine"
-      [iconClass]="'w-6 h-6'"
-      [iconPosition]="'right'"
-      [rounded]="true"
-    ></app-button>
-    <app-button label="Mail" icon="remixMailAddLine" /> -->
+<div class="flex w-full flex-1 flex-col rounded-xl p-20">
+  <div class="flex w-full flex-1 flex-col gap-4 rounded-2xl bg-black/80 p-4 backdrop-blur-xl">
+    <app-dropdown [options]="options" [(selected)]="selected" />
+    @switch (selected()?.label) {
+      @case ('Button') {
+        <app-button label="Settings" [hideText]="true" [icon]="'remixSettings4Fill'" />
+        <app-button label="Mail" btnType="primary" icon="remixMailAddLine" />
+        <app-button
+          label="Mail"
+          btnType="primary"
+          icon="remixMailAddLine"
+          [glow]="true"
+        ></app-button>
+        <app-button
+          label="Mail"
+          btnType="outlined"
+          icon="remixMailAddLine"
+          [glow]="true"
+        ></app-button>
+        <app-button label="Mail" btnType="outlined" icon="remixMailAddLine"></app-button>
+        <app-button label="Mail" icon="remixMailAddLine"></app-button>
+        <app-button
+          icon="remixMailAddLine"
+          [btnType]="'primary'"
+          [rounded]="true"
+          [iconOnly]="true"
+        ></app-button>
+        <app-button
+          icon="remixMailAddLine"
+          [btnType]="'outlined'"
+          [rounded]="true"
+          [iconOnly]="true"
+        ></app-button>
+        <app-button icon="remixMailAddLine" [rounded]="true" [iconOnly]="true"></app-button>
+        <app-button
+          icon="remixMailAddLine"
+          [btnType]="'primary'"
+          [iconOnly]="true"
+          [glow]="true"
+        ></app-button>
+        <app-button icon="remixMailAddLine" [btnType]="'outlined'" [iconOnly]="true"></app-button>
+        <app-button icon="remixMailAddLine" [iconOnly]="true"></app-button>
+        <app-button
+          label="Send"
+          icon="remixCornerDownRightLine"
+          [iconClass]="'w-6 h-6'"
+          [iconPosition]="'right'"
+        ></app-button>
+        <app-button
+          label="Send"
+          icon="remixCornerDownRightLine"
+          [iconClass]="'w-6 h-6'"
+          [iconPosition]="'right'"
+          [rounded]="true"
+        ></app-button>
+        <app-button label="Mail" icon="remixMailAddLine" />
+      }
+      @case ('Checkbox') {
+        <app-checkbox />
+        <app-checkbox [square]="true" />
+      }
+      @case ('Dropdown') {
+        <app-dropdown />
+        <app-dropdown />
+      }
+    }
   </div>
 </div>

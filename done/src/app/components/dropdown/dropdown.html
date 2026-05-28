@@ -1,9 +1,9 @@
 <div class="relative">
   <div
     (click)="handleOpen()"
-    [class]="'relative flex justify-between items-center gap-2 cursor-pointer max-w-3xs select-none px-4 py-2 bg-zinc-700 rounded-xl border border-transparent hover:border-accent hover:ring-3 ring-accent/30 focus-within:ring-2 focus-within:ring-accent duration-500'"
+    [class]="'hover:border-accent ring-accent/30 focus-within:ring-accent relative flex max-w-3xs cursor-pointer items-center justify-between gap-2 rounded-xl border border-transparent bg-zinc-700 px-4 py-2 duration-500 select-none focus-within:ring-2 hover:ring-3'"
   >
-    <span>Buttons</span>
+    <span>{{ selected()?.label ?? 'Choose...' }}</span>
     <ng-icon
       name="remixArrowDownSLine"
       [class]="'text-xl duration-500 ' + (opened() && 'rotate-180')"
@@ -11,15 +11,19 @@
   </div>
   @if (opened()) {
     <div
-      [class]="'absolute z-10 mt-3 flex flex-col gap-2 max-w-xs bg-zinc-700 p-2 border border-accent rounded-xl w-full'"
+      [class]="'border-accent absolute z-10 mt-3 flex w-full max-w-xs flex-col gap-2 rounded-xl border bg-zinc-700 p-2'"
     >
-      @for (option of options(); track option.label) {
-        <span
-          class="cursor-pointer hover:bg-zinc-500 duration-500 px-4 p-2 rounded-lg"
-          (click)="option.onClick()"
-        >
-          {{ option.label }}
-        </span>
+      @if (options().length > 0) {
+        @for (option of options(); track option.label) {
+          <span
+            class="cursor-pointer rounded-lg p-2 px-4 duration-500 hover:bg-zinc-500"
+            (click)="handleSelect(option); option?.onClick()"
+          >
+            {{ option.label }}
+          </span>
+        }
+      } @else {
+        <span class="flex h-16 w-full items-center justify-center">No options</span>
       }
     </div>
   }
