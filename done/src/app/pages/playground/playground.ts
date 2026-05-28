@@ -9,7 +9,23 @@ import { Dropdown, DropdownOption } from '../../components/dropdown/dropdown';
   templateUrl: './playground.html',
 })
 export class Playground {
-  selected = signal<DropdownOption | null>(null);
+  selectedPlayground = signal<DropdownOption | null>(null);
+  selectedTest = signal<DropdownOption | null>(null);
 
-  options: DropdownOption[] = [{ label: 'Button' }, { label: 'Checkbox' }, { label: 'Dropdown' }];
+  playgroundOptions: DropdownOption[] = [
+    { label: 'Button' },
+    { label: 'Checkbox' },
+    { label: 'Dropdown' },
+  ];
+  testOptions: DropdownOption[] = [
+    { label: 'Avalon' },
+    { label: 'Brexley' },
+    { label: 'Corvyn' },
+    { label: 'Dravik' },
+    { label: 'Elspeth' },
+    { label: 'Fenwick' },
+    { label: 'Galdor' },
+    { label: 'Harlyn' },
+    { label: 'Isolde' },
+  ];
 }

@@ -1,7 +1,11 @@
 <div class="flex w-full flex-1 flex-col rounded-xl p-20">
   <div class="flex w-full flex-1 flex-col gap-4 rounded-2xl bg-black/80 p-4 backdrop-blur-xl">
-    <app-dropdown [options]="options" [(selected)]="selected" />
-    @switch (selected()?.label) {
+    <app-dropdown
+      [options]="playgroundOptions"
+      [(selected)]="selectedPlayground"
+      [defaultOption]="playgroundOptions[0]"
+    />
+    @switch (selectedPlayground()?.label) {
       @case ('Button') {
         <app-button label="Settings" [hideText]="true" [icon]="'remixSettings4Fill'" />
         <app-button label="Mail" btnType="primary" icon="remixMailAddLine" />
@@ -60,8 +64,18 @@
         <app-checkbox [square]="true" />
       }
       @case ('Dropdown') {
-        <app-dropdown />
-        <app-dropdown />
+        <app-dropdown
+          [options]="testOptions"
+          [(selected)]="selectedTest"
+          [searchable]="true"
+          placeholder="Searchable"
+        />
+        <app-dropdown
+          [options]="testOptions"
+          [(selected)]="selectedTest"
+          placeholder="Placeholder"
+        />
+        <app-dropdown [options]="testOptions" [(selected)]="selectedTest" />
       }
     }
   </div>
