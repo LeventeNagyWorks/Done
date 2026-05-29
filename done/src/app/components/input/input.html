@@ -1,0 +1,51 @@
+@if (type() === 'textarea') {
+  <div class="flex flex-col gap-1.25">
+    @if (label()) {
+      <div class="flex gap-1">
+        <app-label [label]="label()" />
+        @if (required()) {
+          <span class="text-accent font-semibold">*</span>
+        }
+      </div>
+    }
+    <textarea
+      [attr.placeholder]="placeholder()"
+      [class]="
+        'caret-accent focus:text-accent w-full outline-none' +
+        ' ' +
+        generalClass +
+        ' ' +
+        class +
+        ' ' +
+        inputClass
+      "
+      rows="4"
+    ></textarea>
+  </div>
+} @else {
+  <div class="flex flex-col gap-1.25">
+    @if (label()) {
+      <div class="flex gap-1">
+        <app-label [label]="label()" />
+        @if (required()) {
+          <span class="text-accent font-semibold">*</span>
+        }
+      </div>
+    }
+    <div [class]="generalClass + class">
+      <input
+        [type]="type() === 'password' && showPassword() ? 'text' : type()"
+        [attr.placeholder]="placeholder()"
+        [class]="'caret-accent focus:text-accent w-full outline-none ' + inputClass"
+      />
+      @if (type() === 'password') {
+        <button
+          (click)="handleShow()"
+          class="flex aspect-square max-h-6 cursor-pointer items-center justify-center rounded-full p-1 duration-500 hover:bg-slate-300/30"
+        >
+          <ng-icon [name]="showPassword() ? 'remixEyeCloseLine' : 'remixEyeLine'" />
+        </button>
+      }
+    </div>
+  </div>
+}

@@ -71,7 +71,6 @@
           [options]="testOptions"
           [(selected)]="selectedTest"
           [searchable]="true"
-          placeholder="Searchable"
         />
         <app-dropdown
           [options]="testOptions"
@@ -86,6 +85,12 @@
           placeholder="Placeholder"
         />
         <app-dropdown [options]="testOptions" [(selected)]="selectedTest" />
+      }
+      @case ('Input') {
+        <app-input label="Name" [required]="true" />
+        <app-input type="email" label="Email" [required]="true" placeholder="Email" />
+        <app-input type="password" label="Password" [required]="true" />
+        <app-input type="textarea" label="Description" placeholder="Description" />
       }
       @case ('Label') {
         <app-label label="Label" />

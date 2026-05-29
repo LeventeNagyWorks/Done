@@ -3,10 +3,11 @@ import { Checkbox } from '../../components/checkbox/checkbox';
 import { Button } from '../../components/button/button';
 import { Dropdown, DropdownOption } from '../../components/dropdown/dropdown';
 import { Label } from '../../components/label/label';
+import { Input } from '../../components/input/input';
 
 @Component({
   selector: 'app-playground',
-  imports: [Checkbox, Button, Dropdown, Label],
+  imports: [Checkbox, Button, Dropdown, Input, Label],
   templateUrl: './playground.html',
 })
 export class Playground {
@@ -17,6 +18,7 @@ export class Playground {
     { label: 'Button' },
     { label: 'Checkbox' },
     { label: 'Dropdown' },
+    { label: 'Input' },
     { label: 'Label' },
   ];
   testOptions: DropdownOption[] = [

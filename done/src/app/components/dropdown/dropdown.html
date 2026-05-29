@@ -5,7 +5,7 @@
       <div class="relative flex max-w-3xs">
         <input
           type="text"
-          [placeholder]="placeholder()"
+          [attr.placeholder]="placeholder()"
           (click)="handleOpen()"
           [value]="selected()?.label"
           (input)="searchTerm.set($any($event.target).value)"
