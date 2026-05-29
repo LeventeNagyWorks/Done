@@ -13,8 +13,9 @@
         />
         <ng-icon
           name="remixArrowDownSLine"
+          (click)="handleOpen()"
           [class]="
-            'absolute top-1/2 right-4 -translate-y-1/2 text-xl duration-500 ' +
+            'absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer text-xl duration-500 ' +
             (opened() && 'rotate-180')
           "
         />
