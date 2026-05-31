@@ -1,100 +1,93 @@
-<div class="flex w-full flex-1 flex-col rounded-xl p-20">
-  <div class="flex w-full flex-1 flex-col gap-4 rounded-2xl bg-black/80 p-4 backdrop-blur-xl">
-    <app-dropdown
-      [options]="playgroundOptions"
-      [(selected)]="selectedPlayground"
-      [defaultOption]="playgroundOptions[0]"
-    />
-    @switch (selectedPlayground()?.label) {
-      @case ('Button') {
-        <app-button label="Settings" [hideText]="true" [icon]="'remixSettings4Fill'" />
-        <app-button label="Mail" btnType="primary" icon="remixMailAddLine" />
-        <app-button
-          label="Mail"
-          btnType="primary"
-          icon="remixMailAddLine"
-          [glow]="true"
-        ></app-button>
-        <app-button
-          label="Mail"
-          btnType="outlined"
-          icon="remixMailAddLine"
-          [glow]="true"
-        ></app-button>
-        <app-button label="Mail" btnType="outlined" icon="remixMailAddLine"></app-button>
-        <app-button label="Mail" icon="remixMailAddLine"></app-button>
-        <app-button
-          icon="remixMailAddLine"
-          [btnType]="'primary'"
-          [rounded]="true"
-          [iconOnly]="true"
-        ></app-button>
-        <app-button
-          icon="remixMailAddLine"
-          [btnType]="'outlined'"
-          [rounded]="true"
-          [iconOnly]="true"
-        ></app-button>
-        <app-button icon="remixMailAddLine" [rounded]="true" [iconOnly]="true"></app-button>
-        <app-button
-          icon="remixMailAddLine"
-          [btnType]="'primary'"
-          [iconOnly]="true"
-          [glow]="true"
-        ></app-button>
-        <app-button icon="remixMailAddLine" [btnType]="'outlined'" [iconOnly]="true"></app-button>
-        <app-button icon="remixMailAddLine" [iconOnly]="true"></app-button>
-        <app-button
-          label="Send"
-          icon="remixCornerDownRightLine"
-          [iconClass]="'w-6 h-6'"
-          [iconPosition]="'right'"
-        ></app-button>
-        <app-button
-          label="Send"
-          icon="remixCornerDownRightLine"
-          [iconClass]="'w-6 h-6'"
-          [iconPosition]="'right'"
-          [rounded]="true"
-        ></app-button>
-        <app-button label="Mail" icon="remixMailAddLine" />
-      }
-      @case ('Checkbox') {
-        <app-checkbox />
-        <app-checkbox [square]="true" />
-        <app-checkbox label="Accept the Terms" />
-        <app-checkbox [square]="true" label="Accept the Terms" />
-      }
-      @case ('Dropdown') {
-        <app-dropdown
-          label="Searchable Label"
-          [options]="testOptions"
-          [(selected)]="selectedTest"
-          [searchable]="true"
-        />
-        <app-dropdown
-          [options]="testOptions"
-          [(selected)]="selectedTest"
-          [searchable]="true"
-          placeholder="Searchable"
-        />
-        <app-dropdown
-          label="Test Label"
-          [options]="testOptions"
-          [(selected)]="selectedTest"
-          placeholder="Placeholder"
-        />
-        <app-dropdown [options]="testOptions" [(selected)]="selectedTest" />
-      }
-      @case ('Input') {
-        <app-input label="Name" [required]="true" />
-        <app-input type="email" label="Email" [required]="true" placeholder="Email" />
-        <app-input type="password" label="Password" [required]="true" />
-        <app-input type="textarea" label="Description" placeholder="Description" />
-      }
-      @case ('Label') {
-        <app-label label="Label" />
-      }
+<app-container>
+  <app-dropdown
+    [options]="playgroundOptions"
+    [(selected)]="selectedPlayground"
+    [defaultOption]="playgroundOptions[0]"
+  />
+  @switch (selectedPlayground()?.label) {
+    @case ('Button') {
+      <app-button label="Settings" [hideText]="true" [icon]="'remixSettings4Fill'" />
+      <app-button label="Mail" btnType="primary" icon="remixMailAddLine" />
+      <app-button label="Mail" btnType="primary" icon="remixMailAddLine" [glow]="true"></app-button>
+      <app-button
+        label="Mail"
+        btnType="outlined"
+        icon="remixMailAddLine"
+        [glow]="true"
+      ></app-button>
+      <app-button label="Mail" btnType="outlined" icon="remixMailAddLine"></app-button>
+      <app-button label="Mail" icon="remixMailAddLine"></app-button>
+      <app-button
+        icon="remixMailAddLine"
+        [btnType]="'primary'"
+        [rounded]="true"
+        [iconOnly]="true"
+      ></app-button>
+      <app-button
+        icon="remixMailAddLine"
+        [btnType]="'outlined'"
+        [rounded]="true"
+        [iconOnly]="true"
+      ></app-button>
+      <app-button icon="remixMailAddLine" [rounded]="true" [iconOnly]="true"></app-button>
+      <app-button
+        icon="remixMailAddLine"
+        [btnType]="'primary'"
+        [iconOnly]="true"
+        [glow]="true"
+      ></app-button>
+      <app-button icon="remixMailAddLine" [btnType]="'outlined'" [iconOnly]="true"></app-button>
+      <app-button icon="remixMailAddLine" [iconOnly]="true"></app-button>
+      <app-button
+        label="Send"
+        icon="remixCornerDownRightLine"
+        [iconClass]="'w-6 h-6'"
+        [iconPosition]="'right'"
+      ></app-button>
+      <app-button
+        label="Send"
+        icon="remixCornerDownRightLine"
+        [iconClass]="'w-6 h-6'"
+        [iconPosition]="'right'"
+        [rounded]="true"
+      ></app-button>
+      <app-button label="Mail" icon="remixMailAddLine" />
     }
-  </div>
-</div>
+    @case ('Checkbox') {
+      <app-checkbox />
+      <app-checkbox [square]="true" />
+      <app-checkbox label="Accept the Terms" />
+      <app-checkbox [square]="true" label="Accept the Terms" />
+    }
+    @case ('Dropdown') {
+      <app-dropdown
+        label="Searchable Label"
+        [options]="testOptions"
+        [(selected)]="selectedTest"
+        [searchable]="true"
+      />
+      <app-dropdown
+        [options]="testOptions"
+        [(selected)]="selectedTest"
+        [searchable]="true"
+        placeholder="Searchable"
+      />
+      <app-dropdown
+        label="Test Label"
+        [options]="testOptions"
+        [(selected)]="selectedTest"
+        placeholder="Placeholder"
+      />
+      <app-dropdown [options]="testOptions" [(selected)]="selectedTest" />
+    }
+    @case ('Input') {
+      <app-input label="Name" [required]="true" />
+      <app-input type="email" label="Email" [required]="true" placeholder="Email" />
+      <app-input type="password" label="Password" [required]="true" />
+      <app-input type="textarea" label="Description" placeholder="Description" />
+    }
+    @case ('Label') {
+      <app-label label="Label" />
+    }
+  }
+</app-container>

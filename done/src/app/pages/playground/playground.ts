@@ -4,10 +4,11 @@ import { Button } from '../../components/button/button';
 import { Dropdown, DropdownOption } from '../../components/dropdown/dropdown';
 import { Label } from '../../components/label/label';
 import { Input } from '../../components/input/input';
+import { Container } from "../../components/container/container";
 
 @Component({
   selector: 'app-playground',
-  imports: [Checkbox, Button, Dropdown, Input, Label],
+  imports: [Checkbox, Button, Dropdown, Input, Label, Container],
   templateUrl: './playground.html',
 })
 export class Playground {

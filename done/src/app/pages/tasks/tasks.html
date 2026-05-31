@@ -1,1 +1,8 @@
-<p>tasks works!</p>
+<app-container>
+  <div class="flex flex-col gap-0.5 p-4">
+    <app-toolbar />
+    @for (node of lineService.nodes(); track node.id) {
+      <app-line-node [node]="node" />
+    }
+  </div>
+</app-container>

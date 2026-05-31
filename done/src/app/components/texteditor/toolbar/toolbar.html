@@ -1,0 +1,167 @@
+<div
+  [class]="'mb-3 flex w-full items-center gap-1 rounded-lg bg-zinc-700/30 px-3 py-2'"
+>
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        icon: 'remixArrowGoBackFill',
+        tooltip: 'Undo',
+        action: undefined,
+      }
+    "
+  />
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        icon: 'remixArrowGoForwardFill',
+        tooltip: 'Redo',
+        action: undefined,
+      }
+    "
+  />
+
+  <ng-container *ngTemplateOutlet="divider" />
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        label: 'B',
+        class: 'font-bold',
+        tooltip: 'Bold',
+        action: handleBold,
+      }
+    "
+  />
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        label: 'I',
+        class: 'italic',
+        tooltip: 'Italic',
+        action: handleItalic,
+      }
+    "
+  />
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        label: 'U',
+        class: 'underline',
+        tooltip: 'Underline',
+        action: handleUnderline,
+      }
+    "
+  />
+
+  <ng-container *ngTemplateOutlet="divider" />
+
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        icon: 'remixCheckboxCircleLine',
+        tooltip: 'Circular',
+        action: () => handleSetCheckbox('default'),
+      }
+    "
+  />
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        icon: 'remixCheckboxLine',
+        tooltip: 'Square',
+        action: () => handleSetCheckbox('square'),
+      }
+    "
+  />
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        icon: 'remixListUnordered',
+        tooltip: 'List',
+        action: undefined,
+      }
+    "
+  />
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        icon: 'remixListOrdered2',
+        tooltip: 'Ordered',
+        action: undefined,
+      }
+    "
+  />
+
+  <ng-container *ngTemplateOutlet="divider" />
+
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        icon: 'remixIndentDecrease',
+        tooltip: 'Outdent',
+        action: handleOutdent,
+      }
+    "
+  />
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        icon: 'remixIndentIncrease',
+        tooltip: 'Indent',
+        action: handleIndent,
+      }
+    "
+  />
+  <ng-container *ngTemplateOutlet="divider" />
+
+  <ng-container
+    *ngTemplateOutlet="
+      toolbarBtn;
+      context: {
+        icon: 'remixFileCopy2Line',
+        tooltip: 'Duplicate',
+        action: handleDuplicate,
+      }
+    "
+  />
+</div>
+
+<ng-template
+  #toolbarBtn
+  let-icon="icon"
+  let-label="label"
+  let-class="class"
+  let-action="action"
+  let-tooltip="tooltip"
+>
+  <button
+    (mousedown)="$event.preventDefault()"
+    (click)="action()"
+    [pTooltip]="tooltip"
+    tooltipPosition="top"
+    [class]="
+      'text-md flex h-6 w-6 cursor-pointer items-center justify-center rounded-sm bg-zinc-700 duration-500 hover:bg-zinc-500 ' +
+      class
+    "
+  >
+    @if (icon) {
+      <ng-icon [name]="icon" />
+    } @else {
+      {{ label }}
+    }
+  </button>
+</ng-template>
+
+<ng-template #divider>
+  <span class="mx-2 h-5 w-px bg-zinc-500"></span>
+</ng-template>

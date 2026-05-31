@@ -1,0 +1,91 @@
+<div
+  (mouseenter)="hovered.set(true)"
+  (mouseleave)="hovered.set(false)"
+  (dragover)="handleDragOver($event)"
+  (dragleave)="handleDragLeave()"
+  (drop)="handleDrop($event)"
+  (dragend)="handleDragEnd()"
+  class="relative flex flex-col"
+>
+  <div
+    [class.bg-zinc-700]="dropIndicator() === 'child'"
+    [class.rounded]="dropIndicator() === 'child'"
+    class="group flex items-center gap-1 py-0.5"
+  >
+    <button
+      draggable="true"
+      (dragstart)="handleDragStart($event)"
+      [class]="
+        'flex h-5 w-5 shrink-0 cursor-grab items-center justify-center rounded text-zinc-400 opacity-0 duration-200 hover:text-white active:cursor-grabbing ' +
+        (hovered() && 'opacity-100')
+      "
+    >
+      <ng-icon
+        name="remixDraggable"
+        [class]="'text-sm duration-500'"
+      />
+    </button>
+    <button
+      (click)="lineService.toggleCollapse(node().id)"
+      [class.invisible]="node().children.length === 0"
+      class="flex h-5 w-5 shrink-0 cursor-pointer items-center justify-center rounded text-zinc-400 duration-200 hover:text-white"
+    >
+      <ng-icon
+        name="remixArrowRightSLine"
+        [class]="
+          'text-sm duration-200 ' +
+          (!node().collapsed ? 'rotate-90' : '')
+        "
+      />
+    </button>
+
+    @if (node().checkboxType !== 'none') {
+      <app-checkbox
+        [checked]="node().checked"
+        (checkedChange)="lineService.toggleCheck(node().id)"
+        [square]="node().checkboxType === 'square'"
+      />
+    }
+
+    <div
+      [id]="'line-input-' + node().id"
+      contenteditable="true"
+      (input)="handleInput($event)"
+      (focus)="lineService.focusedId.set(node().id)"
+      (blur)="lineService.focusedId.set(null)"
+      (keydown)="handleKeydown($event)"
+      [class.line-through]="
+        node().checked && node().checkboxType !== 'none'
+      "
+      [class.text-zinc-400]="
+        node().checked && node().checkboxType !== 'none'
+      "
+      class="caret-accent flex-1 bg-transparent outline-none"
+    ></div>
+
+    <button
+      (click)="lineService.cycleCheckboxType(node().id)"
+      class="invisible cursor-pointer rounded px-1 text-xs text-zinc-500 duration-200 group-hover:visible hover:text-white"
+    >
+      {{
+        node().checkboxType === 'none'
+          ? '☐'
+          : node().checkboxType === 'default'
+            ? '○'
+            : '□'
+      }}
+    </button>
+  </div>
+
+  @if (dropIndicator() === 'after') {
+    <div class="bg-accent h-0.5 w-full rounded"></div>
+  }
+
+  @if (!node().collapsed && node().children.length > 0) {
+    <div class="ml-8.5 flex flex-col border-l border-zinc-700 pl-4">
+      @for (child of node().children; track child.id) {
+        <app-line-node [node]="child" />
+      }
+    </div>
+  }
+</div>

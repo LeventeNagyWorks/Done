@@ -3,7 +3,8 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-accent: #fddb3a;
+  --color-accent: #ff8f00;
+  --color-orange: #ff8f00;
   --color-green: #08cb00;
   --color-sakura: #faa9e0;
   --color-lime: #a7d129;
@@ -16,4 +17,9 @@ router-outlet + * {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.p-tooltip .p-tooltip-text {
+  font-size: 0.75rem;
+  padding: 4px 8px;
 }

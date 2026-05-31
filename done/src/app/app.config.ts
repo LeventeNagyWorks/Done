@@ -1,8 +1,14 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import {
+  provideClientHydration,
+  withEventReplay,
+} from '@angular/platform-browser';
 import { provideIcons } from '@ng-icons/core';
 import {
   remixCornerDownRightLine,
@@ -13,6 +19,8 @@ import {
   remixSettings4Fill,
   remixUserFill,
 } from '@ng-icons/remixicon';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,6 +33,7 @@ export const appConfig: ApplicationConfig = {
       remixCornerDownRightLine,
       remixSettings4Fill,
     }),
+    providePrimeNG({ theme: { preset: Aura } }),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
