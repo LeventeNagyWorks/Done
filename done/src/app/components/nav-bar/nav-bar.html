@@ -1,11 +1,38 @@
-<div class="flex h-12 w-full items-center justify-between gap-2 rounded-xl">
+<div
+  class="flex h-12 w-full items-center justify-between gap-2 rounded-xl"
+>
   <div class="flex gap-2">
-    <app-button route="/home" label="Home" [icon]="'remixHome2Fill'" />
-    <app-button route="/tasks" label="Tasks" [icon]="'remixListCheck3'" />
-    <app-button route="/playground" label="Playground" [icon]="'remixLayoutMasonryFill'" />
+    <app-button
+      route="/home"
+      label="Home"
+      [icon]="'remixHome2Fill'"
+    />
+    <app-button
+      route="/tasks"
+      label="Tasks"
+      [icon]="'remixListCheck3'"
+    />
+    <app-button
+      route="/playground"
+      label="Playground"
+      [icon]="'remixLayoutMasonryFill'"
+    />
   </div>
   <div class="flex gap-2">
-    <app-button route="/profile" label="Profile" [icon]="'remixUserFill'" />
-    <app-button label="Settings" [hideText]="true" [icon]="'remixSettings4Fill'" />
+    <app-button
+      route="/login"
+      label="Login"
+      [icon]="'remixUserFill'"
+    />
+    <app-button
+      route="/profile"
+      label="Profile"
+      [icon]="'remixUserFill'"
+    />
+    <app-button
+      label="Settings"
+      [hideText]="true"
+      [icon]="'remixSettings4Fill'"
+    />
   </div>
 </div>

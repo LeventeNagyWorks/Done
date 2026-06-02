@@ -1,6 +1,9 @@
 <div
-  class="min-h-screen flex-1 p-5 text-white flex flex-col selection:bg-accent selection:text-white"
+  class="selection:bg-accent flex h-screen flex-1 flex-col overflow-auto p-5 text-white selection:text-white"
 >
-  <img src="bg.jpg" class="fixed inset-0 -z-10 w-full h-full object-cover" />
+  <img
+    src="bg.jpg"
+    class="fixed inset-0 -z-10 h-full w-full object-cover"
+  />
   <ng-content />
 </div>

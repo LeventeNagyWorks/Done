@@ -1,0 +1,10 @@
+<form class="flex w-full flex-col items-center gap-8 select-none">
+  <h1 class="text-5xl font-bold">Registration</h1>
+  <div class="flex w-full flex-col gap-4">
+    <app-input label="Username" [class]="'max-w-xl!'" />
+    <app-input label="Email" [type]="'email'" />
+    <app-input label="Password" [type]="'password'" />
+  </div>
+  <app-checkbox label="I accept the Terms" />
+  <app-button label="Registration" btnType="primary" [glow]="true" />
+</form>

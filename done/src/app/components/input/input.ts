@@ -22,7 +22,7 @@ export class Input {
   showPassword = signal<boolean>(false);
 
   generalClass =
-    'hover:border-accent ring-accent/30 focus-within:ring-accent flex max-w-3xs items-center justify-between gap-2 rounded-xl border border-transparent bg-zinc-700 p-2 pl-4 duration-500 focus-within:ring-2 ';
+    'hover:border-accent ring-accent/30 focus-within:ring-accent flex max-w-sm items-center justify-between gap-2 rounded-xl border border-transparent bg-zinc-700 p-2 pl-4 duration-500 focus-within:ring-2 ';
 
   handleShow = () => {
     this.showPassword.set(!this.showPassword());
