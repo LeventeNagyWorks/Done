@@ -1,14 +1,71 @@
-<div class="flex items-center gap-2">
-  <div
-    (click)="handleClick()"
-    [class.rounded-full]="!square()"
-    [class.rounded-md]="square()"
-    class="relative flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border border-zinc-400 duration-500 hover:shadow-[0_0_8px_var(--color-accent)]"
-  >
-    @if (checked()) {
-      <ng-icon name="remixCheckLine" size="24" class="absolute" />
-    }
-  </div>
+@switch (type()) {
+  @case ('default') {
+    <div class="flex items-center gap-2">
+      <div
+        (click)="handleClick()"
+        class="relative flex h-4 w-4 cursor-pointer items-center justify-center rounded-full border border-zinc-400 duration-500 hover:shadow-[0_0_8px_var(--color-accent)]"
+      >
+        @if (checked()) {
+          <ng-icon name="remixCheckLine" size="20" class="absolute" />
+        }
+      </div>
 
-  <app-label [label]="label()!" />
-</div>
+      <app-label [label]="label()!" />
+    </div>
+  }
+  @case ('square') {
+    <div class="flex items-center gap-2">
+      <div
+        (click)="handleClick()"
+        class="relative flex h-4 w-4 cursor-pointer items-center justify-center rounded-sm border border-zinc-400 duration-500 hover:shadow-[0_0_8px_var(--color-accent)]"
+      >
+        @if (checked()) {
+          <ng-icon name="remixCheckLine" size="20" class="absolute" />
+        }
+      </div>
+
+      <app-label [label]="label()!" />
+    </div>
+  }
+  @case ('list') {
+    <div class="flex items-center gap-2">
+      <div
+        class="relative flex h-4 w-4 cursor-pointer items-center justify-center"
+        (click)="handleClick()"
+      >
+        <span
+          [class]="
+            'flex h-2 w-2 cursor-pointer rounded-full duration-500 hover:scale-125 ' +
+            (checked() ? 'bg-zinc-600' : 'bg-zinc-400')
+          "
+        ></span>
+        @if (checked()) {
+          <span class="absolute h-px w-full bg-zinc-600"></span>
+        }
+      </div>
+
+      <app-label [label]="label()!" />
+    </div>
+  }
+  @case ('ordered') {
+    <div class="flex items-center gap-2 select-none">
+      <div
+        class="relative flex h-4 w-4 cursor-pointer items-center justify-center"
+        (click)="handleClick()"
+      >
+        <span
+          [class]="
+            'flex cursor-pointer rounded-full duration-500 hover:scale-125 ' +
+            (checked() ? 'text-zinc-600' : 'text-zinc-400')
+          "
+          >{{ num() }}</span
+        >
+        @if (checked()) {
+          <span class="absolute h-px w-full bg-zinc-600"></span>
+        }
+      </div>
+
+      <app-label [label]="label()!" />
+    </div>
+  }
+}

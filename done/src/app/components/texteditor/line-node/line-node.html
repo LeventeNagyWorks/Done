@@ -43,25 +43,41 @@
       <app-checkbox
         [checked]="node().checked"
         (checkedChange)="lineService.toggleCheck(node().id)"
-        [square]="node().checkboxType === 'square'"
+        [type]="node().checkboxType"
+        [num]="num().toString()"
       />
     }
 
     <div
-      [id]="'line-input-' + node().id"
-      contenteditable="true"
-      (input)="handleInput($event)"
-      (focus)="lineService.focusedId.set(node().id)"
-      (blur)="lineService.focusedId.set(null)"
-      (keydown)="handleKeydown($event)"
-      [class.line-through]="
-        node().checked && node().checkboxType !== 'none'
-      "
-      [class.text-zinc-400]="
-        node().checked && node().checkboxType !== 'none'
-      "
-      class="caret-accent flex-1 bg-transparent outline-none"
-    ></div>
+      class="flex min-w-0 flex-1 items-center"
+      (click)="focusInput()"
+    >
+      <div class="relative inline-block">
+        <div
+          [id]="'line-input-' + node().id"
+          contenteditable="true"
+          (input)="handleInput($event)"
+          (focus)="lineService.focusedId.set(node().id)"
+          (blur)="lineService.focusedId.set(null)"
+          (keydown)="handleKeydown($event)"
+          [class.text-zinc-400]="
+            node().checked && node().checkboxType !== 'none'
+          "
+          class="caret-accent bg-transparent outline-none"
+        ></div>
+        @if (node().checked && node().checkboxType !== 'none') {
+          <span
+            [style]="
+              node().checkboxType === 'ordered' ||
+              node().checkboxType === 'list'
+                ? 'left: -32px; width: calc(100% + 32px)'
+                : 'left: 0; width: 100%'
+            "
+            class="animate-strikethrough pointer-events-none absolute top-1/2 h-[0.5px] origin-left bg-zinc-400"
+          ></span>
+        }
+      </div>
+    </div>
 
     <button
       (click)="lineService.cycleCheckboxType(node().id)"
@@ -83,8 +99,15 @@
 
   @if (!node().collapsed && node().children.length > 0) {
     <div class="ml-8.5 flex flex-col border-l border-zinc-700 pl-4">
-      @for (child of node().children; track child.id) {
-        <app-line-node [node]="child" />
+      @for (
+        child of node().children;
+        track child.id;
+        let i = $index
+      ) {
+        <app-line-node
+          [node]="child"
+          [num]="getOrderedNum(node().children, i)"
+        />
       }
     </div>
   }

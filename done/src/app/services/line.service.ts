@@ -1,10 +1,11 @@
 import { effect, Injectable, signal } from '@angular/core';
+import { checkboxType } from '../components/checkbox/checkbox';
 
 export interface LineNodeData {
   id: string;
   content: string;
   collapsed: boolean;
-  checkboxType: 'none' | 'default' | 'square';
+  checkboxType: 'none' | checkboxType;
   checked: boolean;
   children: LineNodeData[];
 }
@@ -243,6 +244,8 @@ export class LineService {
       'none',
       'default',
       'square',
+      'list',
+      'ordered',
     ];
     this.nodes.update((nodes) => {
       const tree: LineNodeData[] = JSON.parse(JSON.stringify(nodes));

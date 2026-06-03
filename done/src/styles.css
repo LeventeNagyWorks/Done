@@ -23,3 +23,16 @@ router-outlet + * {
   font-size: 0.75rem;
   padding: 4px 8px;
 }
+
+@keyframes strikethrough {
+  from {
+    transform: translateY(-50%) scaleX(0);
+  }
+  to {
+    transform: translateY(-50%) scaleX(1);
+  }
+}
+
+@theme {
+  --animate-strikethrough: strikethrough 0.3s ease forwards;
+}

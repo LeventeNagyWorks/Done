@@ -6,16 +6,33 @@
   />
   @switch (selectedPlayground()?.label) {
     @case ('Button') {
-      <app-button label="Settings" [hideText]="true" [icon]="'remixSettings4Fill'" />
-      <app-button label="Mail" btnType="primary" icon="remixMailAddLine" />
-      <app-button label="Mail" btnType="primary" icon="remixMailAddLine" [glow]="true"></app-button>
+      <app-button
+        label="Settings"
+        [hideText]="true"
+        [icon]="'remixSettings4Fill'"
+      />
+      <app-button
+        label="Mail"
+        btnType="primary"
+        icon="remixMailAddLine"
+      />
+      <app-button
+        label="Mail"
+        btnType="primary"
+        icon="remixMailAddLine"
+        [glow]="true"
+      ></app-button>
       <app-button
         label="Mail"
         btnType="outlined"
         icon="remixMailAddLine"
         [glow]="true"
       ></app-button>
-      <app-button label="Mail" btnType="outlined" icon="remixMailAddLine"></app-button>
+      <app-button
+        label="Mail"
+        btnType="outlined"
+        icon="remixMailAddLine"
+      ></app-button>
       <app-button label="Mail" icon="remixMailAddLine"></app-button>
       <app-button
         icon="remixMailAddLine"
@@ -29,15 +46,26 @@
         [rounded]="true"
         [iconOnly]="true"
       ></app-button>
-      <app-button icon="remixMailAddLine" [rounded]="true" [iconOnly]="true"></app-button>
+      <app-button
+        icon="remixMailAddLine"
+        [rounded]="true"
+        [iconOnly]="true"
+      ></app-button>
       <app-button
         icon="remixMailAddLine"
         [btnType]="'primary'"
         [iconOnly]="true"
         [glow]="true"
       ></app-button>
-      <app-button icon="remixMailAddLine" [btnType]="'outlined'" [iconOnly]="true"></app-button>
-      <app-button icon="remixMailAddLine" [iconOnly]="true"></app-button>
+      <app-button
+        icon="remixMailAddLine"
+        [btnType]="'outlined'"
+        [iconOnly]="true"
+      ></app-button>
+      <app-button
+        icon="remixMailAddLine"
+        [iconOnly]="true"
+      ></app-button>
       <app-button
         label="Send"
         icon="remixCornerDownRightLine"
@@ -54,10 +82,12 @@
       <app-button label="Mail" icon="remixMailAddLine" />
     }
     @case ('Checkbox') {
+      <app-checkbox type="ordered" [num]="'2'" />
+      <app-checkbox type="list" />
       <app-checkbox />
-      <app-checkbox [square]="true" />
+      <app-checkbox type="square" />
       <app-checkbox label="Accept the Terms" />
-      <app-checkbox [square]="true" label="Accept the Terms" />
+      <app-checkbox type="square" label="Accept the Terms" />
     }
     @case ('Dropdown') {
       <app-dropdown
@@ -78,13 +108,25 @@
         [(selected)]="selectedTest"
         placeholder="Placeholder"
       />
-      <app-dropdown [options]="testOptions" [(selected)]="selectedTest" />
+      <app-dropdown
+        [options]="testOptions"
+        [(selected)]="selectedTest"
+      />
     }
     @case ('Input') {
       <app-input label="Name" [required]="true" />
-      <app-input type="email" label="Email" [required]="true" placeholder="Email" />
+      <app-input
+        type="email"
+        label="Email"
+        [required]="true"
+        placeholder="Email"
+      />
       <app-input type="password" label="Password" [required]="true" />
-      <app-input type="textarea" label="Description" placeholder="Description" />
+      <app-input
+        type="textarea"
+        label="Description"
+        placeholder="Description"
+      />
     }
     @case ('Label') {
       <app-label label="Label" />

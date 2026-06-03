@@ -28,9 +28,10 @@ import { DragStateService } from '../../../services/drag-state.service';
 })
 export class LineNode {
   node = input.required<LineNodeData>();
-  lineService = inject(LineService);
+  num = input<number>(0);
   hovered = signal<boolean>(false);
   dropIndicator = signal<'before' | 'after' | 'child' | null>(null);
+  lineService = inject(LineService);
   dragState = inject(DragStateService);
   private el = inject(ElementRef);
 
@@ -41,6 +42,14 @@ export class LineNode {
       );
       if (input) input.innerHTML = this.node().content;
     });
+  }
+
+  private inputEl(): HTMLElement | null {
+    return document.getElementById('line-input-' + this.node().id);
+  }
+
+  focusInput() {
+    this.inputEl()?.focus();
   }
 
   handleKeydown(event: KeyboardEvent): void {
@@ -138,5 +147,11 @@ export class LineNode {
   handleDragEnd(): void {
     this.dropIndicator.set(null);
     this.dragState.draggedId.set(null);
+  }
+
+  getOrderedNum(siblings: LineNodeData[], index: number): number {
+    return siblings
+      .slice(0, index + 1)
+      .filter((n) => n.checkboxType === 'ordered').length;
   }
 }
