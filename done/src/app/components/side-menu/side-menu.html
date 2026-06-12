@@ -1,0 +1,21 @@
+<div
+  [class]="'flex h-full w-fit flex-col gap-6 rounded-xl bg-black/80 p-4 select-none'"
+>
+  <div class="flex flex-col gap-2">
+    <p class="text-[10px] font-semibold text-zinc-400">MAIN</p>
+    <app-button
+      icon="remixHome2Fill"
+      label="Dashboard"
+      class="bg-transparent px-1! text-sm text-zinc-400 hover:bg-zinc-600"
+      route="/home"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <p class="text-[10px] font-semibold text-zinc-400">SETTINGS</p>
+    <app-button
+      icon="remixSettings4Fill"
+      label="Settings"
+      class="bg-transparent px-1! text-sm text-zinc-400 hover:bg-zinc-600"
+    />
+  </div>
+</div>

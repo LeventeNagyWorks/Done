@@ -1,14 +1,26 @@
 import { Component, signal } from '@angular/core';
 import { Checkbox } from '../../components/checkbox/checkbox';
 import { Button } from '../../components/button/button';
-import { Dropdown, DropdownOption } from '../../components/dropdown/dropdown';
+import {
+  Dropdown,
+  DropdownOption,
+} from '../../components/dropdown/dropdown';
 import { Label } from '../../components/label/label';
 import { Input } from '../../components/input/input';
-import { Container } from "../../components/container/container";
+import { Container } from '../../components/container/container';
+import { SideMenu } from '../../components/side-menu/side-menu';
 
 @Component({
   selector: 'app-playground',
-  imports: [Checkbox, Button, Dropdown, Input, Label, Container],
+  imports: [
+    Checkbox,
+    Button,
+    Dropdown,
+    Input,
+    Label,
+    Container,
+    SideMenu,
+  ],
   templateUrl: './playground.html',
 })
 export class Playground {
@@ -21,6 +33,7 @@ export class Playground {
     { label: 'Dropdown' },
     { label: 'Input' },
     { label: 'Label' },
+    { label: 'SideMenu' },
   ];
   testOptions: DropdownOption[] = [
     { label: 'Avalon' },
