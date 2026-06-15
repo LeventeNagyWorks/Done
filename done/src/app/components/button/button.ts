@@ -1,13 +1,18 @@
 import { Component, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgIcon } from '@ng-icons/core';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { remixArrowDownSLine } from '@ng-icons/remixicon';
+import { TooltipModule } from 'primeng/tooltip';
+import { NavItem } from "../nav-item/nav-item";
 
 type btnType = 'neutral' | 'primary' | 'outlined';
+export type tooltipPositionType = 'top' | 'bottom' | 'right' | 'left';
 type iconPosType = 'right' | 'left';
 
 @Component({
   selector: 'app-button',
-  imports: [RouterLink, NgIcon],
+  imports: [RouterLink, NgIcon, TooltipModule, NavItem],
+  providers: [provideIcons({ remixArrowDownSLine })],
   templateUrl: './button.html',
 })
 export class Button {
@@ -24,4 +29,9 @@ export class Button {
   iconPosition = input<iconPosType>('left');
   hideText = input<boolean>(false);
   hovered = signal<boolean>(false);
+  isCollapsed = input<boolean>(false);
+  isDropdown = input<boolean>(false);
+  isDropdownCollapsed = signal<boolean>(false);
+  tooltip = input<string>();
+  tooltipPosition = input<tooltipPositionType>();
 }

@@ -4,12 +4,19 @@ import { Profile } from './pages/profile/profile';
 import { Tasks } from './pages/tasks/tasks';
 import { Playground } from './pages/playground/playground';
 import { Auth } from './pages/auth/auth';
+import { Shell } from './components/shell/shell';
 
 export const routes: Routes = [
-  { path: 'home', component: Home },
-  { path: 'tasks', component: Tasks },
-  { path: 'playground', component: Playground },
-  { path: 'profile', component: Profile },
+  {
+    path: '',
+    component: Shell,
+    children: [
+      { path: 'home', component: Home },
+      { path: 'tasks', component: Tasks },
+      { path: 'playground', component: Playground },
+      { path: 'profile', component: Profile },
+    ],
+  },
   { path: 'login', component: Auth, data: { formType: 'login' } },
   {
     path: 'registration',

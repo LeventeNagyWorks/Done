@@ -15,11 +15,12 @@ import {
 import { provideIcons } from '@ng-icons/core';
 import {
   remixCornerDownRightLine,
-  remixHome2Fill,
+  remixFileList2Line,
+  remixHome2Line,
   remixLayoutMasonryFill,
   remixListCheck3,
   remixMailAddLine,
-  remixSettings4Fill,
+  remixSettings4Line,
   remixUserFill,
 } from '@ng-icons/remixicon';
 import { providePrimeNG } from 'primeng/config';
@@ -28,13 +29,14 @@ import Aura from '@primeng/themes/aura';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideIcons({
-      remixHome2Fill,
+      remixHome2Line,
       remixListCheck3,
       remixUserFill,
       remixMailAddLine,
       remixLayoutMasonryFill,
       remixCornerDownRightLine,
-      remixSettings4Fill,
+      remixSettings4Line,
+      remixFileList2Line,
     }),
     providePrimeNG({ theme: { preset: Aura } }),
     provideBrowserGlobalErrorListeners(),

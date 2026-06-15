@@ -1,37 +1,87 @@
-<button
-  (mouseenter)="hovered.set(true)"
-  (mouseleave)="hovered.set(false)"
-  [routerLink]="route()"
-  [class]="
-    'cursor-pointer flex justify-center items-center font-semibold transition-all duration-500 select-none max-h-10' +
-    ' ' +
-    (btnType() === 'primary'
-      ? 'bg-accent! hover:bg-accent/80! text-black'
-      : btnType() === 'outlined'
-        ? 'border border-accent! bg-transparent hover:bg-accent! hover:text-black'
-        : 'hover:bg-slate-500 bg-slate-700') +
-    ' ' +
-    (glow() && 'hover:shadow-[0px_7px_20px_var(--color-accent)]') +
-    ' ' +
-    (rounded() ? 'rounded-full' : 'rounded-xl') +
-    ' ' +
-    (iconOnly() || (hideText() && !hovered()) ? 'p-3' : 'px-4 py-2 gap-2') +
-    ' ' +
-    class()
-  "
->
-  @if (icon()) {
-    <ng-icon
-      [name]="icon()"
-      [class]="'text-lg' + ' ' + iconClass() + ' ' + (iconPosition() === 'right' && 'order-2')"
+<div class="flex flex-col">
+  <button
+    (mouseenter)="hovered.set(true)"
+    (mouseleave)="hovered.set(false)"
+    [routerLink]="route()"
+    [pTooltip]="tooltip()"
+    [tooltipPosition]="tooltipPosition()"
+    [class]="
+      'flex max-h-10 cursor-pointer items-center justify-between font-semibold transition-all duration-500 select-none' +
+      ' ' +
+      (btnType() === 'primary'
+        ? 'bg-accent! hover:bg-accent/80! text-black'
+        : btnType() === 'outlined'
+          ? 'border-accent! hover:bg-accent! border bg-transparent hover:text-black'
+          : 'bg-slate-700 hover:bg-slate-500') +
+      ' ' +
+      (glow() && 'hover:shadow-[0px_7px_20px_var(--color-accent)]') +
+      ' ' +
+      (rounded() ? 'rounded-full' : 'rounded-xl') +
+      ' ' +
+      (iconOnly() || (hideText() && !hovered())
+        ? 'p-3'
+        : 'gap-2 px-4 py-2') +
+      ' ' +
+      class()
+    "
+  >
+    <div class="flex items-center gap-2">
+      @if (icon()) {
+        <ng-icon
+          [name]="icon()"
+          [class]="
+            'text-lg' +
+            ' ' +
+            iconClass() +
+            ' ' +
+            (iconPosition() === 'right' && 'order-2')
+          "
+        />
+      }
+      @if (label() && !isCollapsed()) {
+        <span
+          class="overflow-hidden whitespace-nowrap transition-all duration-500"
+          [class]="
+            hideText() && !hovered()
+              ? 'max-w-0 opacity-0'
+              : 'max-w-xs opacity-100'
+          "
+        >
+          {{ label() }}
+        </span>
+      }
+    </div>
+    @if (isDropdown() && !isCollapsed()) {
+      <button
+        (click)="isDropdownCollapsed.set(!isDropdownCollapsed())"
+        class="flex cursor-pointer items-center justify-center rounded-full p-1 duration-500 hover:bg-zinc-500"
+      >
+        <ng-icon
+          name="remixArrowDownSLine"
+          [class]="
+            'duration-500 ' +
+            (isDropdownCollapsed() ? 'rotate-180' : null)
+          "
+        />
+      </button>
+    }
+  </button>
+  @if (isDropdown() && !isDropdownCollapsed()) {
+    <app-nav-item
+      emoji="🏠"
+      label="Housework"
+      [isCollapsed]="isCollapsed()"
+    />
+    <app-nav-item
+      emoji="📆"
+      label="Assignment"
+      [isCollapsed]="isCollapsed()"
+    />
+    <app-nav-item
+      emoji="💵"
+      label="Finance"
+      [isLast]="true"
+      [isCollapsed]="isCollapsed()"
     />
   }
-  @if (label()) {
-    <span
-      class="overflow-hidden transition-all duration-500 whitespace-nowrap"
-      [class]="hideText() && !hovered() ? 'opacity-0 max-w-0' : 'opacity-100 max-w-xs'"
-    >
-      {{ label() }}
-    </span>
-  }
-</button>
+</div>

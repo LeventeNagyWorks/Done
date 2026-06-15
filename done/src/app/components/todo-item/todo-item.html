@@ -1,8 +1,0 @@
-<div
-  class="w-full flex gap-2 rounded-lg bg-white/30 min-h-18 px-4 py-2 hover:scale-105 duration-700"
->
-  <div class="flex items-center gap-2 h-fit">
-    <app-checkbox [checked]="todo().checked" (checkedChange)="toggle.emit(todo().id)" />
-    <p class="text-lg font-bold text-black">{{ todo().todo }}</p>
-  </div>
-</div>

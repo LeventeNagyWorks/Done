@@ -1,6 +1,5 @@
-import { Component, effect, OnInit, signal } from '@angular/core';
-import { TodoItem } from '../../components/todo-item/todo-item';
-import { Button } from '../../components/button/button';
+import { Component, effect, signal } from '@angular/core';
+
 import { Todo } from '../../models/todo.model';
 
 const STORAGE_KEY = 'todos';
@@ -34,7 +33,7 @@ const DEFAULT_TODOS: Todo[] = [
 
 @Component({
   selector: 'app-home',
-  imports: [TodoItem, Button],
+  imports: [],
   templateUrl: './home.html',
 })
 export class Home {
@@ -61,7 +60,9 @@ export class Home {
 
   toggleTodo(id: number) {
     this.todos.update((todos) =>
-      todos.map((t) => (t.id === id ? { ...t, checked: !t.checked } : t)),
+      todos.map((t) =>
+        t.id === id ? { ...t, checked: !t.checked } : t,
+      ),
     );
   }
 }

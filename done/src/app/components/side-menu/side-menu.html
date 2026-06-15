@@ -1,21 +1,88 @@
 <div
-  [class]="'flex h-full w-fit flex-col gap-6 rounded-xl bg-black/80 p-4 select-none'"
+  [class]="
+    'flex h-full flex-col gap-6 rounded-xl bg-black/80 p-6 transition-transform duration-500 select-none ' +
+    (isCollapsed() ? 'w-fit' : 'w-full max-w-xl')
+  "
 >
-  <div class="flex flex-col gap-2">
+  <div class="relative flex w-full items-center gap-4">
+    <button
+      (click)="handleCollapse()"
+      class="absolute -right-9 flex cursor-pointer rounded-md border border-zinc-700 bg-zinc-900 p-1"
+    >
+      <ng-icon
+        name="remixArrowLeftSLine"
+        [class]="
+          'duration-500 ' + (isCollapsed() ? '' : 'rotate-180')
+        "
+      />
+    </button>
+    <div
+      class="bg-red aspect-square w-12 overflow-hidden rounded-full"
+    >
+      <img src="profile_pic.jpg" alt="" />
+    </div>
+    @if (!isCollapsed()) {
+      <p class="font-semibold">Nagy Levente</p>
+    }
+  </div>
+  @if (!isCollapsed()) {
+    <ng-container *ngTemplateOutlet="divider" />
+  }
+  <div
+    [class]="
+      'flex flex-col gap-2 ' + (isCollapsed() && 'items-center')
+    "
+  >
     <p class="text-[10px] font-semibold text-zinc-400">MAIN</p>
     <app-button
-      icon="remixHome2Fill"
+      icon="remixHome2Line"
       label="Dashboard"
-      class="bg-transparent px-1! text-sm text-zinc-400 hover:bg-zinc-600"
+      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
       route="/home"
+      [tooltip]="isCollapsed() ? 'Dashboard' : undefined"
+      tooltipPosition="right"
+      [isCollapsed]="isCollapsed()"
+    />
+    <app-button
+      icon="remixFileList2Line"
+      label="Projects"
+      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
+      route="/tasks"
+      [tooltip]="isCollapsed() ? 'Projects' : undefined"
+      tooltipPosition="right"
+      [isCollapsed]="isCollapsed()"
+      [isDropdown]="true"
+    />
+    <app-button
+      icon="remixFileList2Line"
+      label="Playground"
+      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
+      route="/playground"
+      [tooltip]="isCollapsed() ? 'Playground' : undefined"
+      tooltipPosition="right"
+      [isCollapsed]="isCollapsed()"
     />
   </div>
-  <div class="flex flex-col gap-2">
+  @if (!isCollapsed()) {
+    <ng-container *ngTemplateOutlet="divider" />
+  }
+  <div
+    [class]="
+      'flex flex-col gap-2 ' + (isCollapsed() && 'items-center')
+    "
+  >
     <p class="text-[10px] font-semibold text-zinc-400">SETTINGS</p>
     <app-button
-      icon="remixSettings4Fill"
+      icon="remixSettings4Line"
       label="Settings"
-      class="bg-transparent px-1! text-sm text-zinc-400 hover:bg-zinc-600"
+      [tooltip]="isCollapsed() ? 'Settings' : undefined"
+      tooltipPosition="right"
+      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
+      [isCollapsed]="isCollapsed()"
     />
   </div>
 </div>
+
+<ng-template #divider>
+  <span class="h-px w-full bg-zinc-700"></span>
+</ng-template>
