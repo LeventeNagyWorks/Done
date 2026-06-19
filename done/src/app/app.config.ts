@@ -20,6 +20,8 @@ import {
   remixLayoutMasonryFill,
   remixListCheck3,
   remixMailAddLine,
+  remixMindMap,
+  remixPencilLine,
   remixSettings4Line,
   remixUserFill,
 } from '@ng-icons/remixicon';
@@ -37,6 +39,8 @@ export const appConfig: ApplicationConfig = {
       remixCornerDownRightLine,
       remixSettings4Line,
       remixFileList2Line,
+      remixMindMap,
+      remixPencilLine,
     }),
     providePrimeNG({ theme: { preset: Aura } }),
     provideBrowserGlobalErrorListeners(),

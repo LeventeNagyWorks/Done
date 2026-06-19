@@ -1,0 +1,53 @@
+<div
+  [class]="
+    'relative flex h-full flex-col gap-6 rounded-2xl bg-black/80 p-6 transition-transform duration-500 select-none ' +
+    (isCollapsed() ? 'w-fit' : 'w-full max-w-xl')
+  "
+>
+  <button
+    (click)="handleCollapse()"
+    class="absolute -right-3 z-10 flex cursor-pointer rounded-md border border-zinc-700 bg-zinc-900 p-1"
+  >
+    <ng-icon
+      name="remixArrowLeftSLine"
+      [class]="'duration-500 ' + (isCollapsed() ? '' : 'rotate-180')"
+    />
+  </button>
+  <div
+    [class]="
+      'flex flex-col gap-2 ' + (isCollapsed() && 'items-center')
+    "
+  >
+    <p class="text-[10px] font-semibold text-zinc-400">MY DOCS</p>
+  </div>
+  @if (!isCollapsed()) {
+    <ng-container *ngTemplateOutlet="divider" />
+  }
+  <div
+    [class]="
+      'flex flex-col gap-1 ' + (isCollapsed() && 'items-center')
+    "
+  >
+    <p class="text-[10px] font-semibold text-zinc-400">TEMPLATES</p>
+    <app-button
+      icon="remixPencilLine"
+      label="Note"
+      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
+      [tooltip]="isCollapsed() ? 'Note' : undefined"
+      tooltipPosition="right"
+      [isCollapsed]="isCollapsed()"
+    />
+    <app-button
+      icon="remixMindMap"
+      label="Mindmap"
+      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
+      [tooltip]="isCollapsed() ? 'Mindmap' : undefined"
+      tooltipPosition="right"
+      [isCollapsed]="isCollapsed()"
+    />
+  </div>
+</div>
+
+<ng-template #divider>
+  <span class="h-px w-full bg-zinc-700"></span>
+</ng-template>

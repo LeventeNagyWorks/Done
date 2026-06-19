@@ -6,10 +6,11 @@ import {
   LineService,
 } from '../../services/line.service';
 import { Toolbar } from '../../components/texteditor/toolbar/toolbar';
+import { DocumentMenu } from "../../components/document-menu/document-menu";
 
 @Component({
   selector: 'app-tasks',
-  imports: [Container, LineNode, Toolbar],
+  imports: [Container, LineNode, Toolbar, DocumentMenu],
   templateUrl: './tasks.html',
 })
 export class Tasks {
