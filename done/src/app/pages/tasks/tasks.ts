@@ -7,10 +7,11 @@ import {
 } from '../../services/line.service';
 import { Toolbar } from '../../components/texteditor/toolbar/toolbar';
 import { DocumentMenu } from "../../components/document-menu/document-menu";
+import { Button } from "../../components/button/button";
 
 @Component({
   selector: 'app-tasks',
-  imports: [Container, LineNode, Toolbar, DocumentMenu],
+  imports: [Container, LineNode, Toolbar, DocumentMenu, Button],
   templateUrl: './tasks.html',
 })
 export class Tasks {

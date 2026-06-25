@@ -24,6 +24,8 @@ import {
   remixPencilLine,
   remixSettings4Line,
   remixUserFill,
+  remixFullscreenLine,
+  remixFullscreenExitLine,
 } from '@ng-icons/remixicon';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
@@ -41,6 +43,8 @@ export const appConfig: ApplicationConfig = {
       remixFileList2Line,
       remixMindMap,
       remixPencilLine,
+      remixFullscreenLine,
+      remixFullscreenExitLine,
     }),
     providePrimeNG({ theme: { preset: Aura } }),
     provideBrowserGlobalErrorListeners(),

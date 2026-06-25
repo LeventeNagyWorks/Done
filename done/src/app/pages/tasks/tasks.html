@@ -8,8 +8,21 @@
   <div class="flex flex-1 gap-6">
     <app-document-menu />
     <app-container>
-      <div class="flex flex-col gap-0.5 p-4">
-        <app-toolbar />
+      <div class="flex flex-col gap-0.5">
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-4">
+            <div class="flex gap-2">
+              <span class="cursor-pointer select-none">🗓️</span>
+              <span>Todo</span>
+            </div>
+            <app-button
+              class="flex h-8 w-8 items-center justify-center"
+              icon="remixFullscreenLine"
+              [iconOnly]="true"
+            />
+          </div>
+          <app-toolbar />
+        </div>
         @for (
           node of lineService.nodes();
           track node.id;
