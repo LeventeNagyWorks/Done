@@ -6,7 +6,12 @@
     [pTooltip]="tooltip()"
     [tooltipPosition]="tooltipPosition()"
     [class]="
-      'flex max-h-10 cursor-pointer items-center justify-between font-semibold transition-all duration-500 select-none' +
+      'flex cursor-pointer items-center justify-between font-semibold transition-all duration-500 select-none ' +
+      (btnSize() === 'small'
+        ? 'max-h-8 text-xs'
+        : btnSize() === 'large'
+          ? 'max-h-12 text-base'
+          : 'max-h-10 text-sm') +
       ' ' +
       (btnType() === 'primary'
         ? 'bg-accent! hover:bg-accent/80! text-black'
@@ -19,8 +24,16 @@
       (rounded() ? 'rounded-full' : 'rounded-xl') +
       ' ' +
       (iconOnly() || (hideText() && !hovered())
-        ? 'p-3'
-        : 'gap-2 px-4 py-2') +
+        ? btnSize() === 'small'
+          ? 'p-2'
+          : btnSize() === 'large'
+            ? 'p-4'
+            : 'p-3'
+        : btnSize() === 'small'
+          ? 'gap-2 px-3 py-1'
+          : btnSize() === 'large'
+            ? 'gap-2 px-5 py-3'
+            : 'gap-2 px-4 py-2') +
       ' ' +
       class()
     "
@@ -30,7 +43,11 @@
         <ng-icon
           [name]="icon()"
           [class]="
-            'text-lg' +
+            (btnSize() === 'small'
+              ? 'text-sm'
+              : btnSize() === 'large'
+                ? 'text-xl'
+                : 'text-lg') +
             ' ' +
             iconClass() +
             ' ' +

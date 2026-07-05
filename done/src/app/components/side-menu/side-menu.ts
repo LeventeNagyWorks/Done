@@ -16,7 +16,7 @@ export class SideMenu {
   collapsable = input<boolean>(true);
 
   btnClass =
-    'bg-transparent px-2! text-sm text-zinc-400 hover:bg-zinc-600 justify-between ';
+    'bg-transparent! px-2! text-sm text-zinc-400 hover:bg-zinc-600! justify-between ';
 
   handleCollapse = () => {
     this.isCollapsed.set(!this.isCollapsed());

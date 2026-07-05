@@ -1,7 +1,7 @@
 <div class="flex flex-1 flex-col gap-4">
   <div class="w-full rounded-2xl bg-black/80 p-3 px-6">
     <div class="flex items-center gap-3">
-      <span class="cursor-pointer pb-1 text-xl select-none">💵</span>
+      <app-emoji-picker [(emoji)]="pageEmoji" class="pb-1 text-xl" />
       <h1 class="text-xl font-semibold">Finance</h1>
     </div>
   </div>
@@ -10,29 +10,23 @@
     <app-container>
       <div class="flex flex-col gap-0.5">
         <div class="flex flex-col gap-3">
-          <div class="flex items-center gap-4">
+          <div class="flex items-center justify-between gap-4">
             <div class="flex gap-2">
-              <span class="cursor-pointer select-none">🗓️</span>
+              <app-emoji-picker [(emoji)]="sectionEmoji" />
               <span>Todo</span>
             </div>
             <app-button
-              class="flex h-8 w-8 items-center justify-center"
+              class="rounded-md bg-transparent! duration-500 hover:bg-zinc-600!"
+              btnSize="small"
               icon="remixFullscreenLine"
+              tooltip="Enter Fullscreen Mode"
+              tooltipPosition="bottom"
               [iconOnly]="true"
             />
           </div>
           <app-toolbar />
         </div>
-        @for (
-          node of lineService.nodes();
-          track node.id;
-          let i = $index
-        ) {
-          <app-line-node
-            [node]="node"
-            [num]="getOrderedNum(lineService.nodes(), i)"
-          />
-        }
+        <app-texteditor />
       </div>
     </app-container>
   </div>

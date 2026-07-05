@@ -7,7 +7,7 @@
       context: {
         icon: 'remixArrowGoBackFill',
         tooltip: 'Undo',
-        action: undefined,
+        action: undo,
       }
     "
   />
@@ -17,7 +17,7 @@
       context: {
         icon: 'remixArrowGoForwardFill',
         tooltip: 'Redo',
-        action: undefined,
+        action: redo,
       }
     "
   />
@@ -30,7 +30,8 @@
         label: 'B',
         class: 'font-bold',
         tooltip: 'Bold',
-        action: handleBold,
+        action: bold,
+        active: isActive('bold'),
       }
     "
   />
@@ -41,7 +42,8 @@
         label: 'I',
         class: 'italic',
         tooltip: 'Italic',
-        action: handleItalic,
+        action: italic,
+        active: isActive('italic'),
       }
     "
   />
@@ -52,7 +54,8 @@
         label: 'U',
         class: 'underline',
         tooltip: 'Underline',
-        action: handleUnderline,
+        action: underline,
+        active: isActive('underline'),
       }
     "
   />
@@ -65,7 +68,7 @@
       context: {
         icon: 'remixCheckboxCircleLine',
         tooltip: 'Circular',
-        action: () => handleSetCheckbox('default'),
+        action: () => setCheckbox('default'),
       }
     "
   />
@@ -75,7 +78,7 @@
       context: {
         icon: 'remixCheckboxLine',
         tooltip: 'Square',
-        action: () => handleSetCheckbox('square'),
+        action: () => setCheckbox('square'),
       }
     "
   />
@@ -85,7 +88,7 @@
       context: {
         icon: 'remixListUnordered',
         tooltip: 'List',
-        action: () => handleSetCheckbox('list'),
+        action: () => setCheckbox('list'),
       }
     "
   />
@@ -95,7 +98,7 @@
       context: {
         icon: 'remixListOrdered2',
         tooltip: 'Ordered',
-        action: () => handleSetCheckbox('ordered'),
+        action: () => setCheckbox('ordered'),
       }
     "
   />
@@ -108,7 +111,7 @@
       context: {
         icon: 'remixIndentDecrease',
         tooltip: 'Outdent',
-        action: handleOutdent,
+        action: outdent,
       }
     "
   />
@@ -118,7 +121,7 @@
       context: {
         icon: 'remixIndentIncrease',
         tooltip: 'Indent',
-        action: handleIndent,
+        action: indent,
       }
     "
   />
@@ -130,7 +133,7 @@
       context: {
         icon: 'remixFileCopy2Line',
         tooltip: 'Duplicate',
-        action: handleDuplicate,
+        action: duplicate,
       }
     "
   />
@@ -143,6 +146,7 @@
   let-class="class"
   let-action="action"
   let-tooltip="tooltip"
+  let-active="active"
 >
   <button
     (mousedown)="$event.preventDefault()"
@@ -150,7 +154,9 @@
     [pTooltip]="tooltip"
     tooltipPosition="top"
     [class]="
-      'text-md flex h-6 w-6 cursor-pointer items-center justify-center rounded-sm bg-zinc-700 duration-500 hover:bg-zinc-500 ' +
+      'text-md flex h-6 w-6 cursor-pointer items-center justify-center rounded-sm duration-500 ' +
+      (active ? 'bg-zinc-500' : 'bg-zinc-700 hover:bg-zinc-500') +
+      ' ' +
       class
     "
   >

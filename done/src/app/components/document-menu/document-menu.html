@@ -45,6 +45,14 @@
       tooltipPosition="right"
       [isCollapsed]="isCollapsed()"
     />
+    <app-button
+      icon="remixArtboardLine"
+      label="Whiteboard"
+      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
+      [tooltip]="isCollapsed() ? 'Whiteboard' : undefined"
+      tooltipPosition="right"
+      [isCollapsed]="isCollapsed()"
+    />
   </div>
 </div>
 

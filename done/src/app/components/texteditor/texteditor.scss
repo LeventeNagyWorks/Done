@@ -1,0 +1,27 @@
+@reference "../../../styles.css";
+
+:host ::ng-deep {
+  .ProseMirror {
+    outline: none;
+  }
+
+  .ProseMirror p {
+    @apply py-0.5;
+  }
+
+  .ProseMirror ul[data-type='taskList'] {
+    @apply list-none p-0;
+  }
+
+  .ProseMirror ul[data-type='taskList'] li {
+    @apply flex items-center gap-2 py-0.5;
+  }
+
+  .ProseMirror ul[data-type='taskList'] li > label {
+    @apply shrink-0;
+  }
+
+  .ProseMirror ul[data-type='taskList'] ul[data-type='taskList'] {
+    @apply ml-8 border-l border-zinc-700 pl-4;
+  }
+}

@@ -26,6 +26,7 @@ import {
   remixUserFill,
   remixFullscreenLine,
   remixFullscreenExitLine,
+  remixArtboardLine,
 } from '@ng-icons/remixicon';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
@@ -45,6 +46,7 @@ export const appConfig: ApplicationConfig = {
       remixPencilLine,
       remixFullscreenLine,
       remixFullscreenExitLine,
+      remixArtboardLine,
     }),
     providePrimeNG({ theme: { preset: Aura } }),
     provideBrowserGlobalErrorListeners(),

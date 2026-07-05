@@ -1,0 +1,14 @@
+<div class="relative">
+  <span class="cursor-pointer select-none" (click)="toggle()">{{
+    emoji()
+  }}</span>
+  @if (isOpen() && isBrowser) {
+    <div class="absolute top-8 z-50">
+      <emoji-mart
+        (emojiSelect)="selectEmoji($event)"
+        [darkMode]="true"
+        color="#ff8f00"
+      />
+    </div>
+  }
+</div>

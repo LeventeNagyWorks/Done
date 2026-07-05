@@ -3,8 +3,9 @@ import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { remixArrowDownSLine } from '@ng-icons/remixicon';
 import { TooltipModule } from 'primeng/tooltip';
-import { NavItem } from "../nav-item/nav-item";
+import { NavItem } from '../nav-item/nav-item';
 
+type btnSizeType = 'small' | 'medium' | 'large';
 type btnType = 'neutral' | 'primary' | 'outlined';
 export type tooltipPositionType = 'top' | 'bottom' | 'right' | 'left';
 type iconPosType = 'right' | 'left';
@@ -34,4 +35,5 @@ export class Button {
   isDropdownCollapsed = signal<boolean>(false);
   tooltip = input<string>();
   tooltipPosition = input<tooltipPositionType>();
+  btnSize = input<btnSizeType>('medium');
 }
