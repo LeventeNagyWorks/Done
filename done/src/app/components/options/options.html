@@ -1,0 +1,34 @@
+<div class="relative flex">
+  <button
+    (click)="handleOpen()"
+    class="relative flex cursor-pointer items-center justify-center"
+  >
+    <ng-icon name="remixMore2Line" />
+  </button>
+  @if (opened()) {
+    <div
+      class="absolute top-7 right-0 z-10 flex flex-col gap-2 rounded-lg bg-zinc-900 p-2"
+    >
+      <app-button
+        label="Rounded"
+        btnSize="small"
+        class="rounded-2xl bg-transparent hover:bg-zinc-600"
+      />
+      <app-button
+        label="Square"
+        btnSize="small"
+        class="rounded-2xl bg-transparent hover:bg-zinc-600"
+      />
+      <app-button
+        label="Duplicate"
+        btnSize="small"
+        class="rounded-2xl bg-transparent hover:bg-zinc-600"
+      />
+      <app-button
+        label="Delete"
+        btnSize="small"
+        class="rounded-2xl bg-transparent hover:bg-zinc-600"
+      />
+    </div>
+  }
+</div>

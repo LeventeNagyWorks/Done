@@ -27,6 +27,10 @@ import {
   remixFullscreenLine,
   remixFullscreenExitLine,
   remixArtboardLine,
+  remixCalendarTodoFill,
+  remixDraggable,
+  remixMore2Line,
+  remixCalendarLine,
 } from '@ng-icons/remixicon';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
@@ -47,8 +51,15 @@ export const appConfig: ApplicationConfig = {
       remixFullscreenLine,
       remixFullscreenExitLine,
       remixArtboardLine,
+      remixCalendarTodoFill,
+      remixDraggable,
+      remixMore2Line,
+      remixCalendarLine,
     }),
-    providePrimeNG({ theme: { preset: Aura } }),
+    providePrimeNG({
+      theme: { preset: Aura },
+      ripple: true,
+    }),
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding()),
     provideClientHydration(withEventReplay()),

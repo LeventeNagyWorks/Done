@@ -3,37 +3,29 @@ import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { remixArrowDownSLine } from '@ng-icons/remixicon';
 import { TooltipModule } from 'primeng/tooltip';
-import { NavItem } from '../nav-item/nav-item';
+import { ButtonModule } from 'primeng/button';
 
-type btnSizeType = 'small' | 'medium' | 'large';
-type btnType = 'neutral' | 'primary' | 'outlined';
+type btnSizeType = 'small' | 'large';
+type severityType = 'primary' | 'secondary';
+type variantType = 'outlined' | 'text' | undefined;
 export type tooltipPositionType = 'top' | 'bottom' | 'right' | 'left';
-type iconPosType = 'right' | 'left';
 
 @Component({
   selector: 'app-button',
-  imports: [RouterLink, NgIcon, TooltipModule, NavItem],
+  imports: [RouterLink, NgIcon, TooltipModule, ButtonModule],
   providers: [provideIcons({ remixArrowDownSLine })],
   templateUrl: './button.html',
+  styleUrl: './button.scss',
 })
 export class Button {
-  label = input<string>();
-  btnType = input<btnType>('neutral');
   route = input<string>();
+  label = input<string>();
   icon = input<string>();
-  class = input<string>();
-  iconClass = input<string>();
-  iconOnly = input<boolean>(false);
+  size = input<btnSizeType>();
   rounded = input<boolean>(false);
-  disabled = input<boolean>(false);
-  glow = input<boolean>(false);
-  iconPosition = input<iconPosType>('left');
-  hideText = input<boolean>(false);
-  hovered = signal<boolean>(false);
-  isCollapsed = input<boolean>(false);
-  isDropdown = input<boolean>(false);
-  isDropdownCollapsed = signal<boolean>(false);
+  severity = input<severityType>('secondary');
+  variant = input<variantType>();
   tooltip = input<string>();
   tooltipPosition = input<tooltipPositionType>();
-  btnSize = input<btnSizeType>('medium');
+  btnSize = input<btnSizeType>();
 }

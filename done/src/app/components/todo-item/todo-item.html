@@ -1,0 +1,32 @@
+<div
+  class="flex items-center justify-between gap-2 rounded-lg p-1 px-2 duration-500 hover:bg-zinc-700"
+>
+  <div class="flex items-center gap-2">
+    <button class="flex cursor-grab items-center justify-center">
+      <ng-icon name="remixDraggable" />
+    </button>
+    <app-checkbox [(checked)]="checked" />
+    <span [class]="checked() ? 'text-zinc-400 line-through' : ''"
+      >Főzni</span
+    >
+  </div>
+  <div class="flex items-center gap-3">
+    <p-popover #op>
+      <p-datepicker
+        [(ngModel)]="dueDate"
+        [inline]="true"
+        [showTime]="true"
+        [hourFormat]="'24'"
+        [showButtonBar]="true"
+      />
+    </p-popover>
+
+    <button
+      (click)="op.toggle($event)"
+      class="flex cursor-pointer items-center justify-center"
+    >
+      <ng-icon name="remixCalendarLine" />
+    </button>
+    <app-options />
+  </div>
+</div>

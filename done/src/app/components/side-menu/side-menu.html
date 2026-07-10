@@ -40,30 +40,36 @@
     <app-button
       icon="remixHome2Line"
       label="Dashboard"
-      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
       route="/home"
+      variant="text"
       [tooltip]="isCollapsed() ? 'Dashboard' : undefined"
       tooltipPosition="right"
-      [isCollapsed]="isCollapsed()"
     />
     <app-button
-      icon="remixFileList2Line"
-      label="Projects"
-      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
-      route="/tasks"
-      [tooltip]="isCollapsed() ? 'Projects' : undefined"
+      icon="remixCalendarTodoFill"
+      label="Todo"
+      route="/todo"
+      variant="text"
+      [tooltip]="isCollapsed() ? 'Todo' : undefined"
       tooltipPosition="right"
-      [isCollapsed]="isCollapsed()"
-      [isDropdown]="true"
     />
+    <p-tree [value]="projects" selectionMode="single">
+      <ng-template pTemplate="default" let-node>
+        <div class="flex items-center gap-2">
+          @if (node.data?.icon) {
+            <ng-icon [name]="node.data.icon" />
+          }
+          <span>{{ node.label }}</span>
+        </div>
+      </ng-template>
+    </p-tree>
     <app-button
       icon="remixFileList2Line"
       label="Playground"
-      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
       route="/playground"
+      variant="text"
       [tooltip]="isCollapsed() ? 'Playground' : undefined"
       tooltipPosition="right"
-      [isCollapsed]="isCollapsed()"
     />
   </div>
   @if (!isCollapsed()) {
@@ -78,10 +84,9 @@
     <app-button
       icon="remixSettings4Line"
       label="Settings"
+      variant="text"
       [tooltip]="isCollapsed() ? 'Settings' : undefined"
       tooltipPosition="right"
-      [class]="btnClass + (isCollapsed() ? 'w-fit' : 'w-full')"
-      [isCollapsed]="isCollapsed()"
     />
   </div>
 </div>

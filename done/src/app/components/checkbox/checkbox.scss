@@ -1,0 +1,19 @@
+@reference "../../../styles.css";
+
+:host ::ng-deep {
+  .p-checkbox {
+    @apply flex! items-center! justify-center!;
+
+    &:hover .p-checkbox-box {
+      @apply ring-accent/40 rounded-sm! ring-2 ring-offset-1 ring-offset-transparent;
+    }
+  }
+
+  .p-checkbox-box[data-p='checked'] {
+    @apply bg-accent! border-accent!;
+
+    &:hover {
+      @apply brightness-70;
+    }
+  }
+}

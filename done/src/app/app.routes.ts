@@ -5,6 +5,7 @@ import { Tasks } from './pages/tasks/tasks';
 import { Playground } from './pages/playground/playground';
 import { Auth } from './pages/auth/auth';
 import { Shell } from './components/shell/shell';
+import { Todo } from './pages/todo/todo';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,7 @@ export const routes: Routes = [
     component: Shell,
     children: [
       { path: 'home', component: Home },
+      { path: 'todo', component: Todo },
       { path: 'tasks', component: Tasks },
       { path: 'playground', component: Playground },
       { path: 'profile', component: Profile },

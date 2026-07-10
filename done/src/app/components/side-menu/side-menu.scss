@@ -1,0 +1,15 @@
+@reference "../../../styles.css";
+
+:host ::ng-deep {
+  .p-tree {
+    @apply bg-transparent! p-0;
+  }
+
+  .p-tree-node-content {
+    @apply font-semibold text-zinc-400!;
+  }
+
+  .p-tree-node-selected {
+    @apply bg-accent/40 text-white!;
+  }
+}

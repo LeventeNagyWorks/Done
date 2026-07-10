@@ -1,0 +1,89 @@
+@reference "../../../styles.css";
+
+:host ::ng-deep {
+  .p-button {
+    @apply px-2.5 py-1.5 text-base;
+
+    &.p-button-sm {
+      @apply gap-1 px-2 py-1 text-sm;
+    }
+
+    &.p-button-lg {
+      @apply px-4 py-2 text-lg;
+    }
+
+    // Primary - filled
+    &:not(.p-button-secondary):not(.p-button-outlined):not(
+        .p-button-text
+      ) {
+      @apply bg-accent! border-accent!;
+
+      &:not(:disabled):hover {
+        @apply brightness-90;
+      }
+      &:not(:disabled):active {
+        @apply brightness-75;
+      }
+    }
+
+    // Secondary - filled
+    &.p-button-secondary:not(.p-button-outlined):not(.p-button-text) {
+      @apply border-zinc-700! bg-zinc-700!;
+
+      &:not(:disabled):hover {
+        @apply brightness-110;
+      }
+      &:not(:disabled):active {
+        @apply brightness-125;
+      }
+    }
+
+    // Primary - outlined
+    &.p-button-outlined:not(.p-button-secondary) {
+      @apply border-accent! text-accent!;
+
+      &:not(:disabled):hover {
+        @apply bg-accent/10!;
+      }
+      &:not(:disabled):active {
+        @apply bg-accent/20!;
+      }
+    }
+
+    // Secondary - outlined
+    &.p-button-outlined.p-button-secondary {
+      @apply border-zinc-500! text-zinc-400!;
+
+      &:not(:disabled):hover {
+        @apply bg-zinc-700/40!;
+      }
+      &:not(:disabled):active {
+        @apply bg-zinc-700/60!;
+      }
+    }
+
+    // Primary - text
+    &.p-button-text:not(.p-button-secondary) {
+      @apply text-accent!;
+
+      &:not(:disabled):hover {
+        @apply bg-accent/10!;
+      }
+      &:not(:disabled):active {
+        @apply bg-accent/20!;
+      }
+    }
+
+    // Secondary - text
+    &.p-button-text.p-button-secondary {
+      @apply text-zinc-400!;
+
+      &:not(:disabled):hover {
+        @apply bg-zinc-700/40!;
+      }
+      &:not(:disabled):active {
+        @apply bg-zinc-700/60!;
+      }
+    }
+  }
+}
