@@ -31,6 +31,7 @@ import {
   remixDraggable,
   remixMore2Line,
   remixCalendarLine,
+  remixDeleteBinLine,
 } from '@ng-icons/remixicon';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
@@ -55,6 +56,7 @@ export const appConfig: ApplicationConfig = {
       remixDraggable,
       remixMore2Line,
       remixCalendarLine,
+      remixDeleteBinLine,
     }),
     providePrimeNG({
       theme: { preset: Aura },

@@ -22,10 +22,12 @@ export class Button {
   label = input<string>();
   icon = input<string>();
   size = input<btnSizeType>();
+  fluid = input<boolean>(false);
   rounded = input<boolean>(false);
   severity = input<severityType>('secondary');
   variant = input<variantType>();
   tooltip = input<string>();
   tooltipPosition = input<tooltipPositionType>();
   btnSize = input<btnSizeType>();
+  styleClass = input<string>();
 }

@@ -1,0 +1,10 @@
+:host ::ng-deep {
+  .options-popover::before,
+  .options-popover::after {
+    display: none !important;
+  }
+}
+.options-popover::before,
+.options-popover::after {
+  display: none !important;
+}

@@ -1,23 +1,21 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { NgIcon } from '@ng-icons/core';
 import { Button } from '../button/button';
+import { MenuItemContent, MenuModule } from 'primeng/menu';
+import { MenuItem } from 'primeng/api';
+import { PopoverModule } from 'primeng/popover';
 
-interface options {
-  icon: string;
-  text: string;
-  onClick: void;
-}
+export type optionsItemType = {
+  label: string;
+  data: { icon: string };
+};
 
 @Component({
   selector: 'app-options',
-  imports: [NgIcon, Button],
+  imports: [NgIcon, Button, MenuModule, PopoverModule],
   templateUrl: './options.html',
-  styles: ``,
+  styleUrl: './options.scss',
 })
 export class Options {
-  opened = signal(false);
-
-  handleOpen = () => {
-    this.opened.set(!this.opened());
-  };
+  items = input<optionsItemType[]>([]);
 }

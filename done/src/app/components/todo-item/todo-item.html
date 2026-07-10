@@ -10,7 +10,7 @@
       >Főzni</span
     >
   </div>
-  <div class="flex items-center gap-3">
+  <div class="flex items-center gap-1">
     <p-popover #op>
       <p-datepicker
         [(ngModel)]="dueDate"
@@ -21,12 +21,13 @@
       />
     </p-popover>
 
-    <button
+    <app-button
+      size="small"
+      icon="remixCalendarLine"
+      variant="text"
       (click)="op.toggle($event)"
-      class="flex cursor-pointer items-center justify-center"
-    >
-      <ng-icon name="remixCalendarLine" />
-    </button>
-    <app-options />
+      [rounded]="true"
+    />
+    <app-options [items]="items" />
   </div>
 </div>

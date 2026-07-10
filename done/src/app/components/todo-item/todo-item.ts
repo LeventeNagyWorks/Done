@@ -4,7 +4,8 @@ import { NgIcon } from '@ng-icons/core';
 import { DatePicker } from 'primeng/datepicker';
 import { Popover } from 'primeng/popover';
 import { FormsModule } from '@angular/forms';
-import { Options } from '../options/options';
+import { Options, optionsItemType } from '../options/options';
+import { Button } from '../button/button';
 
 @Component({
   selector: 'app-todo-item',
@@ -15,6 +16,7 @@ import { Options } from '../options/options';
     Popover,
     FormsModule,
     Options,
+    Button,
   ],
   templateUrl: './todo-item.html',
   styles: ``,
@@ -22,4 +24,7 @@ import { Options } from '../options/options';
 export class TodoItem {
   dueDate: Date | null = null;
   checked = model<boolean>(false);
+  items: optionsItemType[] = [
+    { label: 'Delete', data: { icon: 'remixDeleteBinLine' } },
+  ];
 }
