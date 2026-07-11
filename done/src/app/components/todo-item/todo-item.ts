@@ -6,6 +6,7 @@ import { Popover } from 'primeng/popover';
 import { FormsModule } from '@angular/forms';
 import { Options, optionsItemType } from '../options/options';
 import { Button } from '../button/button';
+import { Datepicker } from '../datepicker/datepicker';
 
 @Component({
   selector: 'app-todo-item',
@@ -17,12 +18,12 @@ import { Button } from '../button/button';
     FormsModule,
     Options,
     Button,
+    Datepicker,
   ],
   templateUrl: './todo-item.html',
   styles: ``,
 })
 export class TodoItem {
-  dueDate: Date | null = null;
   checked = model<boolean>(false);
   items: optionsItemType[] = [
     { label: 'Delete', data: { icon: 'remixDeleteBinLine' } },

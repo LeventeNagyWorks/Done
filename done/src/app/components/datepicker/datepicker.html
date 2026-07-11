@@ -1,0 +1,28 @@
+<p-popover #op>
+  <p-datepicker
+    [(ngModel)]="dueDate"
+    [inline]="true"
+    [showTime]="true"
+    [hourFormat]="'24'"
+    [showButtonBar]="true"
+  />
+</p-popover>
+
+@if (dueDate) {
+  <app-button
+    [label]="(dueDate | date: 'MMM d, HH:mm') ?? undefined"
+    size="small"
+    icon="remixCalendarLine"
+    variant="text"
+    (click)="op.toggle($event)"
+    [rounded]="true"
+  />
+} @else {
+  <app-button
+    size="small"
+    icon="remixCalendarLine"
+    variant="text"
+    (click)="op.toggle($event)"
+    [rounded]="true"
+  />
+}

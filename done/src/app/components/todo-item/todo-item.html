@@ -11,23 +11,7 @@
     >
   </div>
   <div class="flex items-center gap-1">
-    <p-popover #op>
-      <p-datepicker
-        [(ngModel)]="dueDate"
-        [inline]="true"
-        [showTime]="true"
-        [hourFormat]="'24'"
-        [showButtonBar]="true"
-      />
-    </p-popover>
-
-    <app-button
-      size="small"
-      icon="remixCalendarLine"
-      variant="text"
-      (click)="op.toggle($event)"
-      [rounded]="true"
-    />
+    <app-datepicker />
     <app-options [items]="items" />
   </div>
 </div>

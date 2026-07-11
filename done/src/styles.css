@@ -5,7 +5,7 @@
 @import 'tailwindcss/utilities' layer(utilities);
 
 @theme {
-  --color-accent: #ff8f00;
+  --color-accent: #d82148;
   --color-orange: #ff8f00;
   --color-green: #08cb00;
   --color-sakura: #faa9e0;
