@@ -1,0 +1,15 @@
+@reference "../../../styles.css";
+
+:host ::ng-deep {
+  input {
+    @apply caret-accent!;
+  }
+
+  .p-inputtext:enabled:focus {
+    @apply border-accent!;
+  }
+
+  .p-floatlabel:has(input:focus) label {
+    @apply text-accent!;
+  }
+}

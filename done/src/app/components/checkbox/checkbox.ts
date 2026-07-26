@@ -11,4 +11,5 @@ import { CheckboxModule } from 'primeng/checkbox';
 export class Checkbox {
   checked = model<boolean>(false);
   rounded = model<boolean>(false);
+  label = input<string>();
 }

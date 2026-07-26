@@ -11,5 +11,9 @@
 
   .p-tree-node-selected {
     @apply bg-accent/40! text-white!;
+
+    .p-tree-node-toggle-button:hover {
+      @apply text-accent!;
+    }
   }
 }

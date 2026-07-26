@@ -1,9 +1,9 @@
 <form class="flex w-full flex-col items-center gap-8 select-none">
   <h1 class="text-5xl font-bold">Login</h1>
   <div class="flex w-full flex-col gap-4">
-    <app-input label="Username" />
-    <app-input label="Password" [type]="'password'" />
+    <app-input label="Username" id="username" />
+    <app-input label="Password" id="password" />
   </div>
   <app-checkbox label="Remember me" />
-  <app-button label="Login" btnType="primary" />
+  <app-button label="Login" severity="primary" />
 </form>

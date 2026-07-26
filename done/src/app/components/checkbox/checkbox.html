@@ -1,1 +1,10 @@
-<p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary" />
+<div class="flex items-center justify-center gap-2">
+  <p-checkbox
+    [(ngModel)]="checked"
+    [binary]="true"
+    inputId="binary"
+  />
+  @if (label()) {
+    <label>{{ label() }}</label>
+  }
+</div>

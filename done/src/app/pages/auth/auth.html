@@ -1,16 +1,16 @@
-<app-container innerClass="max-w-xl">
+<app-container innerClass="max-w-xl max-h-[780px]">
   <div class="flex w-full flex-col items-center gap-8 p-24">
     @if (formType() === 'login') {
       <app-login-form></app-login-form>
     } @else {
       <app-registration-form></app-registration-form>
     }
-    <div class="flex w-full items-center gap-3">
+    <div class="flex w-full items-center gap-3 select-none">
       <span class="h-px flex-1 bg-slate-500"></span>
       <p class="shrink-0 text-slate-500">
         {{
           formType() === 'login'
-            ? `Or if you don't have any account yet`
+            ? `Or if you don't have an account yet`
             : 'Or if you already have an account'
         }}
       </p>
@@ -18,7 +18,8 @@
     </div>
     <app-button
       [label]="formType() === 'login' ? 'Registration' : 'Login'"
-      btnType="outlined"
+      severity="primary"
+      variant="outlined"
       [route]="formType() === 'login' ? '/registration' : '/login'"
     />
   </div>
