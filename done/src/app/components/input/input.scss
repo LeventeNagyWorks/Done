@@ -1,8 +1,8 @@
 @reference "../../../styles.css";
 
 :host ::ng-deep {
-  input {
-    @apply caret-accent!;
+  .p-component.p-inputtext input {
+    @apply caret-accent! w-full! max-w-0!;
   }
 
   .p-inputtext:enabled:focus {

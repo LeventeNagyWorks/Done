@@ -16,6 +16,7 @@ export type inputType = 'text' | 'password' | 'email' | 'textarea';
 })
 export class Input {
   label = input.required<string>();
+  fluid = input<boolean | undefined>(true);
   id = input.required<string>();
   type = input<inputType>('text');
   required = input<boolean>(false);
